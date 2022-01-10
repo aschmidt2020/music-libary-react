@@ -1,0 +1,9 @@
+.btn:focus {
+    box-shadow: none !important;
+    -webkit-box-shadow: none!important; 
+}
+
+li {
+    list-style: none;
+    margin-left: 1em
+}
