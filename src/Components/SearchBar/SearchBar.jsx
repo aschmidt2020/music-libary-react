@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 
 const SearchBar = (props) => {
     const [title, setTitle] = useState('');
@@ -6,6 +8,10 @@ const SearchBar = (props) => {
     const [artist, setArtist] = useState('');
     const [genre, setGenre] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     function handleSubmit(event){
         event.preventDefault();
@@ -32,26 +38,39 @@ const SearchBar = (props) => {
         setReleaseDate('');
     }
 
-    return (  
-        <form onSubmit={handleSubmit}>
+    return ( 
 
-            <label>Title</label>
-            <input type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
+        <form className='search-form' onSubmit={handleSubmit}>
+            <h2>Search</h2>
+            <div className='input-group mb-3'>
+                <label className='input-group-text'>Title</label>
+                <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
+            </div>
 
-            <label>Artist</label>
-            <input type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>     
+            <div className='input-group mb-3'>
+                <label className='input-group-text'>Artist</label>
+                <input className='form-control' type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>    
+            </div>
 
-            <label>Album</label>
-            <input type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+            <div className='input-group mb-3'>
+                <label className='input-group-text'>Album</label>
+                <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+            </div>
 
-            <label>Genre</label>
-            <input type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>     
+            <div className='input-group mb-3'>
+                <label className='input-group-text'>Genre</label>
+                <input className='form-control' type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>     
+            </div>      
 
-            <label>Release Date</label>
-            <input type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>     
+            <div className='input-group mb-3'>
+                <label className='input-group-text'>Release Date</label>
+                <input className='form-control' type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>  
+            </div>
+                <button type='submit' className='btn btn-secondary' style={{'marginLeft': '7em'}}>Search</button>
 
-            <button type='submit' style={{'marginTop': '1em'}}>Search</button>
         </form>
+
+
     );
 }
  

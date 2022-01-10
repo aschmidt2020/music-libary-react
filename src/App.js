@@ -28,10 +28,37 @@ function App() {
 
   return (
     <div>
-      <SearchBar songs={songs} getSpecificSong={getSpecificSong}/>
-      <FilterMusic songs={songs} getFilteredSongs={getFilteredSongs}/>
-      <DisplayMusicTable songs={songs}/>
-      <button onClick={getAllSongs}>Display All Songs</button>
+      <div className='container-fluid' style={{'marginLeft': '2em'}}>
+        <div className='row' style={{'marginBottom':'2em'}}>
+          <h1 className='text-align-center' style={{'marginTop':'1em'}}>Welcome to Music Library!</h1>
+        </div>
+
+        <div className='row'>
+          <div className='col-2'>
+            {/* for spacing */}
+          </div>
+          <div className='col-8'>
+            <button className='btn btn-primary' onClick={getAllSongs} style={{'width':'100%'}}>Display All Songs</button>
+          </div>
+          <div className='col-2'>
+            {/* for spacing */}
+          </div>
+        </div>
+
+        <div className='row' style={{'marginTop':'2em'}}>
+          <div className='col-2'>
+            <FilterMusic songs={songs} getFilteredSongs={getFilteredSongs}/>
+          </div>
+          <div className='col-7'>
+            <DisplayMusicTable songs={songs}/>
+          </div>
+
+          <div className='col-3'>
+            <SearchBar songs={songs} getSpecificSong={getSpecificSong}/>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

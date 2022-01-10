@@ -70,47 +70,56 @@ const FilterMusic = (props) => {
     if(show){
         return(
             <div>
-                <button onClick={handleClick}>
+                <button className='btn bg-transparent' onClick={handleClick}>
                 <i className="bi bi-filter-square"></i>
                 </button>
+                
+                <form onSubmit={handleSubmit}>
+                    <span className='filter-list-text'>Filter by Artist</span>
+                    {artists.map((artist, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={artist} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{artist}</li>
+                        )
+                    })}
 
-            <form onSubmit={handleSubmit}>
-                <p>Filter by Artist</p>
-                {artists.map((artist, index) => {
-                    return (
-                        <li key={index}><input type='checkbox' value={artist} onChange={toggleCheckbox} />{artist}</li>
-                    )
-                })}
+                    <span><br></br></span>
 
-                <p>Filter by Album</p>
-                {albums.map((album, index) => {
-                    return (
-                        <li key={index}><input type='checkbox' value={album} onChange={toggleCheckbox} />{album}</li>
-                    )
-                })}
+                    <span className='filter-list-text'>Filter by Album</span>
+                    {albums.map((album, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={album} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{album}</li>
+                        )
+                    })}
 
-                <p>Filter by Genre</p>
-                {genres.map((genre, index) => {
-                    return (
-                        <li key={index}><input type='checkbox' value={genre} onChange={toggleCheckbox} />{genre}</li>
-                    )
-                })}
+                    <span><br></br></span>
 
-                <p>Filter by Release Dates</p>
-                {releaseDates.map((date, index) => {
-                    return (
-                        <li key={index}><input type='checkbox' value={date} onChange={toggleCheckbox} />{date}</li>
-                    )
-                })}
+                    <span className='filter-list-text'>Filter by Genre</span>
+                    {genres.map((genre, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={genre} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{genre}</li>
+                        )
+                    })}
 
-                <button type='submit'>Filter</button>
-            </form>
+                    <span><br></br></span>
+
+                    <span className='filter-list-text'>Filter by Release Dates</span>
+                    {releaseDates.map((date, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={date} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{date}</li>
+                        )
+                    })}
+
+                    <span><br></br></span>
+
+                    <button type='submit' className='btn btn-secondary filter-list-text' style={{'marginLeft': '5em'}}>Filter</button>
+                </form>
+
             </div>
         )
     }
 
     return (
-        <button onClick={handleClick}>
+        <button className='btn bg-transparent' onClick={handleClick}>
         <i className="bi bi-filter-square"></i>
         </button>
      );
