@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DisplayMusicTable from './Components/DisplayMusicTable/DisplayMusicTable';
 import axios from 'axios';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 function App() {
 
@@ -15,9 +16,15 @@ function App() {
     setSongs(response.data);
   }
 
+  async function getSpecificSong(song){
+    setSongs(song);
+  }
+
   return (
     <div>
+      <SearchBar songs={songs} getSpecificSong={getSpecificSong}/>
       <DisplayMusicTable songs={songs}/>
+      <button onClick={getAllSongs}>Display All Songs</button>
     </div>
   );
 }
