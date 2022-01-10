@@ -1,4 +1,4 @@
-export function getArtistCount(songs){
+export function getArtists(songs){
     let artistNamesList = songs.map(function(el){
         return el.artist;
     }).sort();
