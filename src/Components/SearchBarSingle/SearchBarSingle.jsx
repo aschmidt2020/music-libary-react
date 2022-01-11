@@ -16,7 +16,7 @@ const SearchBarSingle = (props) => {
                      if(e.releaseDate.includes(searchTerm)){return true};
                  });
                 
-        debugger
+        //debugger
         props.getSpecificSong(song);
 
         resetForm();
@@ -31,10 +31,6 @@ const SearchBarSingle = (props) => {
         <input style={{'marginLeft':'3em'}} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchTerm} onChange={(event)=>{setSearchTerm(event.target.value)}} />
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
-
-        
-
-
     );
 }
  

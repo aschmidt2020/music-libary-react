@@ -3,7 +3,6 @@ import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 import SearchBarSingle from "../SearchBarSingle/SearchBarSingle";
 import FilterMusic from "../FilterMusic/FilterMusic"
 
-
 const NavBar = (props) => {
 
     return (

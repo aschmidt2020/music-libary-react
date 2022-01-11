@@ -2,7 +2,7 @@ const ScrollToTopButton = (props) => {
     function scrollToTop() {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // for smoothly scrolling
+          behavior: 'smooth'
         });
       };
 

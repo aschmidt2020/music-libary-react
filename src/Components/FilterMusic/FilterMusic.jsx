@@ -13,7 +13,6 @@ const FilterMusic = (props) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    debugger
     const handleShow = () => setShow(true);
     const handleClick = () => {setShowPage(!showPage)}
 

@@ -17,7 +17,7 @@ const SearchBarMultiple = (props) => {
         event.preventDefault();
         let releaseDateFormat = releaseDate[5] + releaseDate[6] + '/' + releaseDate[8] + releaseDate[9] + '/' + releaseDate [0] + releaseDate [1] + releaseDate [2] + releaseDate [3]
         
-        debugger
+        //debugger
         
         let song = props.songs.filter (e => {
                      if(e.title == title){return true};
@@ -90,10 +90,6 @@ const SearchBarMultiple = (props) => {
         </Modal.Footer>
       </Modal>
     </>
-
-        
-
-
     );
 }
  
