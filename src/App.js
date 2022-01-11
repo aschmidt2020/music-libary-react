@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
 
+  const [allSongs, setAllSongs] = useState([]);
   const [songs, setSongs] = useState([]);
 
   useEffect(() => {
@@ -15,7 +16,14 @@ function App() {
 
   async function getAllSongs(){
     let response = await axios.get('http://www.devcodecampmusiclibrary.com/api/music');
+    setAllSongs(response.data);
     setSongs(response.data);
+    //debugger
+  }
+
+  function setAllSongsFunction(allSongs){
+    setSongs(allSongs);
+    //debugger
   }
 
   function getSpecificSong(song){
@@ -47,14 +55,14 @@ function App() {
 
         <div className='row' style={{'marginTop':'2em'}}>
           <div className='col-2'>
-            <FilterMusic songs={songs} getFilteredSongs={getFilteredSongs} getAllSongs={getAllSongs}/>
+            <FilterMusic allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
           </div>
           <div className='col-7'>
             <DisplayMusicTable songs={songs}/>
           </div>
 
           <div className='col-3'>
-            <SearchBar songs={songs} getSpecificSong={getSpecificSong}/>
+            <SearchBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
           </div>
         </div>
 

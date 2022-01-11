@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 import { getValues } from './FilterFunction';
 
 const FilterMusic = (props) => {
@@ -60,12 +61,22 @@ const FilterMusic = (props) => {
 
     function resetForm() {
         setSelectedBoxes([]);
-        //setShow(false) //will automatically close button
+        $('input[type=checkbox]').each(function() //resets all checkboxes to prevent a checkbox holding its current state after form submit
+        { 
+        this.checked = false; 
+        }); 
+        //debugger
     }
 
-    function resetAllFilters() {
+    function handleReset() {
         setSelectedBoxes([]);
-        props.getAllSongs();
+        $('input[type=checkbox]').each(function() //resets all checkboxes to prevent a checkbox holding its current state after form reset
+        { 
+        this.checked = false; 
+        }); 
+        //debugger
+        props.setAllSongs(props.allSongs);
+        
     }
 
     if(show){
@@ -75,7 +86,7 @@ const FilterMusic = (props) => {
                 <i className="bi bi-filter-square"></i>
                 </button>
                 
-                <form onSubmit={handleSubmit}>
+                <form id='filterForm' onSubmit={handleSubmit}>
                     <span className='filter-list-text'>Filter by Artist</span>
                     {artists.map((artist, index) => {
                         return (
@@ -112,7 +123,7 @@ const FilterMusic = (props) => {
 
                     <span><br></br></span>
 
-                    <button onClick={resetAllFilters} type='reset' className='btn btn-secondary filter-list-text' style={{'marginLeft': '2em'}}>Reset All Filters</button>
+                    <button onClick={handleReset} type='reset' className='btn btn-secondary filter-list-text' style={{'marginLeft': '2em'}}>Reset All Filters</button>
                     <button type='submit' className='btn btn-primary filter-list-text' style={{'marginLeft': '1em'}}>Filter</button>
                 </form>
 
