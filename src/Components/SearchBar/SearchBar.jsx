@@ -41,7 +41,7 @@ const SearchBar = (props) => {
 
     return ( 
         <>
-      <Button variant="btn bg-transparent" onClick={handleShow}>
+      <Button variant="btn bg-transparent" onClick={handleShow} style={{'marginTop':'1em'}}>
       <i className="bi bi-search"></i>
       </Button>
 

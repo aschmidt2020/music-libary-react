@@ -6,7 +6,7 @@ const GetAllSongs = (props) => {
     }
     else if(props.navbar ==='true'){
         return ( 
-            <button className='btn bg-transparent' onClick={() => {props.setAllSongs(props.allSongs)}}><i className="bi bi-eye"></i></button>
+            <button className='btn bg-transparent' style={{'marginTop':'1em'}} onClick={() => {props.setAllSongs(props.allSongs)}}><i className="bi bi-eye"></i></button>
          );
     }
 }

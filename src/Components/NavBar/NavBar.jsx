@@ -12,7 +12,7 @@ const NavBar = (props) => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav"  style={{'marginTop':'1em'}}>
+            <div className="navbar-nav"  style={{'marginLeft':'70em'}} >
                 <SearchBar allSongs={props.allSongs} songs={props.songs} getSpecificSong={props.getSpecificSong}/>
                 <GetAllSongs navbar='true' allSongs={props.allSongs} setAllSongs={props.setAllSongs}/>
                 <ScrollToTopButton />

@@ -7,7 +7,7 @@ const ScrollToTopButton = (props) => {
       };
 
     return (
-        <button className='btn bg-transparent' onClick={scrollToTop}><i className="bi bi-arrow-bar-up"></i></button>
+        <button className='btn bg-transparent' onClick={scrollToTop} style={{'marginTop':'1em'}}><i className="bi bi-arrow-bar-up"></i></button>
     );
 }
  

@@ -73,7 +73,7 @@ function App() {
         </div>
 
         <div className='row'>
-          <div className='col-2' style={{'marginTop':'-2.2em'}}>
+          <div className='col-2' style={{'marginTop':'-3.2em'}}>
             <SearchBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
             <span><br></br></span>
             <FilterMusic allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
