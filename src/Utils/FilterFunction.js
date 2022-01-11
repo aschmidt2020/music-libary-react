@@ -26,7 +26,7 @@ function getValueCount(list) {
     return valueCount;
 }
 
-export function getValues(keyToSearch, list){
+function getValues(keyToSearch, list){
     //debugger
     let keyToSearchList = getValueList(keyToSearch, list);
     let valueCountList = getValueCount(keyToSearchList);
@@ -39,3 +39,5 @@ export function getValues(keyToSearch, list){
 
     return results;
 }
+
+export { getValueCount, getValueList, getValues }
