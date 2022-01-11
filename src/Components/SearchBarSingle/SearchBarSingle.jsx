@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const SearchBarSingle = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
 
-    function handleSubmit(event){
-        event.preventDefault();
-        
-        let song = props.songs.filter (e => {
-                     if(e.title.includes(searchTerm)){return true}; //kept all if statements so that each 'e' would have to loop through each statement
-                     if(e.album.includes(searchTerm)){return true};
-                     if(e.artist.includes(searchTerm)){return true};
-                     if(e.genre.includes(searchTerm)){return true};
-                     if(e.releaseDate.includes(searchTerm)){return true};
-                 });
-                
-        //debugger
+    useEffect(() => {
+        let song = props.allSongs.filter (e => {
+            if(e.title.includes(searchTerm)){return true}; //kept all if statements so that each 'e' would have to loop through each statement
+            if(e.album.includes(searchTerm)){return true};
+            if(e.artist.includes(searchTerm)){return true};
+            if(e.genre.includes(searchTerm)){return true};
+            if(e.releaseDate.includes(searchTerm)){return true};
+        });
+    
         props.getSpecificSong(song);
+    },[searchTerm])
 
-        resetForm();
-    }
-
-    function resetForm(){
-        setSearchTerm('');
-    }
 
     return ( 
-        <form className="d-flex" onSubmit={handleSubmit}>
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchTerm} onChange={(event)=>{setSearchTerm(event.target.value)}} />
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
     );
 }
  
 export default SearchBarSingle;
-
-
