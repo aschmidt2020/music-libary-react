@@ -17,6 +17,8 @@ function App() {
 
   function setBackground(){
     document.body.style.backgroundColor = '#fafafa';
+    document.body.style.marginLeft = '2em';
+    document.body.style.marginRight = '2em'
   }
 
   async function getAllSongs(){
@@ -41,7 +43,7 @@ function App() {
 
   return (
     <div>
-      <div className='container-fluid' style={{'marginLeft': '2em'}}>
+      <div className='container-fluid'>
         <div className='row' style={{'marginBottom':'2em'}}>
           <h1 className='text-align-center' style={{'marginTop':'1em'}}>Welcome to Music<small className='text-muted'>Library</small>!</h1>
           <p class="text-align-center" style={{'marginTop':'1em'}}>
