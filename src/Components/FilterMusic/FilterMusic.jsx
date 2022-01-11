@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
-import { getValues } from './FilterFunction';
+import { getValues } from '../../Utils/FilterFunction';
 
 const FilterMusic = (props) => {
     const [artists, setArtists] = useState([]);
