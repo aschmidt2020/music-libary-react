@@ -149,7 +149,7 @@ const FilterMusic = (props) => {
       
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Search</Modal.Title>
+                <Modal.Title>Filter</Modal.Title>
               </Modal.Header>
               <Modal.Body>
       
