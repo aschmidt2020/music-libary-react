@@ -74,8 +74,13 @@ function App() {
 
         <div className='row'>
           <div className='col-2' style={{'marginTop':'1em'}}>
-            <SearchBarMultiple allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
-            <FilterMusic navbar='false' allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
+              <div>
+                <SearchBarMultiple allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
+              </div>
+              <div>
+                <FilterMusic navbar='false' allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
+              </div>
+            
           </div>
           <div className='col-8'>
             <DisplayMusicTable songs={songs}/>

@@ -19,6 +19,11 @@ const FilterMusic = (props) => {
     const [showPage, setShowPage] = useState(false);
     const [selectedBoxes, setSelectedBoxes] = useState([]);
 
+    const filterPageBox = {
+        marginLeft: '80%',
+        marginTop: '1em'
+    }
+
     useEffect(() => {
         let artistsList = getValues('artist', props.songs);
         let albumsList = getValues('album', props.songs);
@@ -89,12 +94,12 @@ const FilterMusic = (props) => {
 
     if(showPage && props.navbar == 'false'){
         return(
-            <div style={{'marginLeft':'2em'}}>
-                <button style={{'marginTop':'1em'}} className='btn bg-transparent' onClick={handleClick}>
+            <div>
+                <button style={filterPageBox} className="btn btn-outline-secondary" data-toggle='popover' title='Filter' data-content='Filter' trigger='hover' onClick={handleClick}>
                 <i className="bi bi-filter-square"></i>
                 </button>
                 
-                <form id='filterForm' onSubmit={handleSubmit}>
+                <form id='filterForm' style={{'marginLeft':'2em'}} onSubmit={handleSubmit}>
                     <span className='filter-list-text'>Filter by Artist</span>
                     {artists.map((artist, index) => {
                         return (
@@ -142,7 +147,7 @@ const FilterMusic = (props) => {
     if(props.navbar == 'true'){
         return(
             <>
-            <Button variant="btn bg-transparent" onClick={handleShow} style={{'marginTop':'1em'}}>
+            <Button variant="btn btn-outline-secondary" onClick={handleShow} style={{'marginTop':'0.5em'}} data-toggle='popover' title='Filter' data-content='Filter' trigger='hover'>
             <i className="bi bi-filter-square"></i>
             </Button>
       
@@ -208,9 +213,11 @@ const FilterMusic = (props) => {
     }
 
     return (
-        <button style={{'marginTop':'1em'}} className='btn bg-transparent' onClick={handleClick}>
-        <i className="bi bi-filter-square"></i>
-        </button>
+        <div style={filterPageBox}>
+            <button className="btn btn-outline-secondary" data-toggle='popover' title='Filter' data-content='Filter' trigger='hover' onClick={handleClick}>
+            <i className="bi bi-filter-square"></i>
+            </button>
+        </div>
      );
 }
  

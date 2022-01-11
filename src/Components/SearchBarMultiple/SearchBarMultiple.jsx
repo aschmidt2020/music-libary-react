@@ -40,56 +40,56 @@ const SearchBarMultiple = (props) => {
     }
 
     return ( 
-        <>
-      <Button variant="btn bg-transparent" onClick={handleShow} style={{'marginTop':'1em'}}>
-      <i className="bi bi-search"></i>
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Search</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-
-        <form className='search-form' onSubmit={handleSubmit}>
-            <div className='input-group mb-3'>
-                <label className='input-group-text'>Title</label>
-                <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
-            </div>
-
-            <div className='input-group mb-3'>
-                <label className='input-group-text'>Artist</label>
-                <input className='form-control' type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>    
-            </div>
-
-            <div className='input-group mb-3'>
-                <label className='input-group-text'>Album</label>
-                <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
-            </div>
-
-            <div className='input-group mb-3'>
-                <label className='input-group-text'>Genre</label>
-                <input className='form-control' type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>     
-            </div>      
-
-            <div className='input-group mb-3'>
-                <label className='input-group-text'>Release Date</label>
-                <input className='form-control' type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>  
-            </div>
-
-        </form>
-        
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+        <div style={{'marginLeft':'80%'}}>
+          <Button variant="btn btn-outline-secondary" onClick={handleShow} style={{'marginTop':'1em'}} data-toggle='popover' title='Search' data-content='Search' trigger='hover'>
+          <i className="bi bi-search"></i>
           </Button>
-          <Button type='submit' variant="primary" onClick={handleSubmit}>
-            Search
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Search</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+
+            <form className='search-form' onSubmit={handleSubmit}>
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Title</label>
+                    <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
+                </div>
+
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Artist</label>
+                    <input className='form-control' type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>    
+                </div>
+
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Album</label>
+                    <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+                </div>
+
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Genre</label>
+                    <input className='form-control' type='text' value={genre} onChange={(event) => setGenre(event.target.value)}/>     
+                </div>      
+
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Release Date</label>
+                    <input className='form-control' type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>  
+                </div>
+
+            </form>
+            
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button type='submit' variant="primary" onClick={handleSubmit}>
+                Search
+              </Button>
+            </Modal.Footer>
+          </Modal>
+    </div>
     );
 }
  
