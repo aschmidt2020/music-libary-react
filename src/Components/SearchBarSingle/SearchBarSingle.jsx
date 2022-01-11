@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 
 const SearchBarSingle = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -9,7 +7,7 @@ const SearchBarSingle = (props) => {
         event.preventDefault();
         
         let song = props.songs.filter (e => {
-                     if(e.title.includes(searchTerm)){return true};
+                     if(e.title.includes(searchTerm)){return true}; //kept all if statements so that each 'e' would have to loop through each statement
                      if(e.album.includes(searchTerm)){return true};
                      if(e.artist.includes(searchTerm)){return true};
                      if(e.genre.includes(searchTerm)){return true};
