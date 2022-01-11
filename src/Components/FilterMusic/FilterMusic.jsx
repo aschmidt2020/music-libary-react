@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import { getValues } from '../../Utils/FilterFunction';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const FilterMusic = (props) => {
     const [artists, setArtists] = useState([]);
@@ -9,7 +11,14 @@ const FilterMusic = (props) => {
     const [releaseDates, setReleaseDates] = useState([])
 
     const [show, setShow] = useState(false);
-    const [selectedBoxes, setSelectedBoxes] = useState([])
+
+    const handleClose = () => setShow(false);
+    debugger
+    const handleShow = () => setShow(true);
+    const handleClick = () => {setShowPage(!showPage)}
+
+    const [showPage, setShowPage] = useState(false);
+    const [selectedBoxes, setSelectedBoxes] = useState([]);
 
     useEffect(() => {
         let artistsList = getValues('artist', props.songs);
@@ -22,8 +31,6 @@ const FilterMusic = (props) => {
         setGenres(genresList);
         setReleaseDates(releaseDatesList);
     }, [props.songs])
-
-    const handleClick = () => {setShow(!show)}
 
     function toggleCheckbox(event) {
         //debugger
@@ -65,6 +72,7 @@ const FilterMusic = (props) => {
         { 
         this.checked = false; 
         }); 
+        setShow(false);
         //debugger
     }
 
@@ -76,13 +84,14 @@ const FilterMusic = (props) => {
         }); 
         //debugger
         props.setAllSongs(props.allSongs);
+        setShow(false);
         
     }
 
-    if(show){
+    if(showPage && props.navbar == 'false'){
         return(
             <div style={{'marginLeft':'2em'}}>
-                <button className='btn bg-transparent' onClick={handleClick}>
+                <button style={{'marginTop':'1em'}} className='btn bg-transparent' onClick={handleClick}>
                 <i className="bi bi-filter-square"></i>
                 </button>
                 
@@ -131,8 +140,76 @@ const FilterMusic = (props) => {
         )
     }
 
+    if(props.navbar == 'true'){
+        return(
+            <>
+            <Button variant="btn bg-transparent" onClick={handleShow} style={{'marginTop':'1em'}}>
+            <i className="bi bi-filter-square"></i>
+            </Button>
+      
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Search</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+      
+              <form id='filterForm' onSubmit={handleSubmit}>
+                    <span className='filter-list-text'>Filter by Artist</span>
+                    {artists.map((artist, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={artist} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{artist}</li>
+                        )
+                    })}
+
+                    <span><br></br></span>
+
+                    <span className='filter-list-text'>Filter by Album</span>
+                    {albums.map((album, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={album} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{album}</li>
+                        )
+                    })}
+
+                    <span><br></br></span>
+
+                    <span className='filter-list-text'>Filter by Genre</span>
+                    {genres.map((genre, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={genre} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{genre}</li>
+                        )
+                    })}
+
+                    <span><br></br></span>
+
+                    <span className='filter-list-text'>Filter by Release Dates</span>
+                    {releaseDates.map((date, index) => {
+                        return (
+                            <li key={index} className='filter-list-text'><input type='checkbox' value={date} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{date}</li>
+                        )
+                    })}
+
+                    <span><br></br></span>
+                </form>
+              
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="danger"onClick={handleReset} type='reset'>
+                  Reset All Filters
+                </Button>
+                <Button variant="secondary"onClick={handleClose}>
+                  Close
+                </Button>
+                <Button type='submit' variant="primary" onClick={handleSubmit}>
+                  Filter
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        )
+    }
+
     return (
-        <button className='btn bg-transparent' onClick={handleClick}>
+        <button style={{'marginTop':'1em'}} className='btn bg-transparent' onClick={handleClick}>
         <i className="bi bi-filter-square"></i>
         </button>
      );
