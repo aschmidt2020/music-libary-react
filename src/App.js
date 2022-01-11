@@ -47,16 +47,16 @@ function App() {
     <div>
       <div className='container-fluid'>
         <div className='row' style={{'marginBottom':'2em'}}>
-          <NavBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong} getAllSongs={getAllSongs}/>
+          <NavBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong} getAllSongs={getAllSongs} setAllSongs={setAllSongsFunction}/>
           <h1 className='text-align-center' style={{'marginTop':'2em'}}>Welcome to Music<small className='text-muted'>Library</small>!</h1>
-          <p class="text-align-center" style={{'marginTop':'1em'}}>
+          <p className="text-align-center" style={{'marginTop':'1em'}}>
           Welcome to your own MusicLibrary. You can filter songs by selecting the <i className="bi bi-filter-square"></i> icon on the left-hand side.
           <br></br>
           You can also search for a specific songs by selecting the <i className="bi bi-search"></i> icon on the left-hand side.
           <br></br>
           When you have completed any filtering or searching, use the 'Display All Songs' button to show all the songs again.
           <br></br>
-          You can also Search (<i className="bi bi-search"></i>), Display  All (<i class="bi bi-eye"></i>), or Scroll To Top (<i className="bi bi-arrow-bar-up"></i>) from the navigation bar.
+          You can also Search (<i className="bi bi-search"></i>), Display  All (<i className="bi bi-eye"></i>), or Scroll To Top (<i className="bi bi-arrow-bar-up"></i>) from the navigation bar.
           </p>
         </div>
 
