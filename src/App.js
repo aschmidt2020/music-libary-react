@@ -55,6 +55,8 @@ function App() {
           You can also search for a specific songs by selecting the <i className="bi bi-search"></i> icon on the left-hand side.
           <br></br>
           When you have completed any filtering or searching, use the 'Display All Songs' button to show all the songs again.
+          <br></br>
+          You can also Search (<i className="bi bi-search"></i>), Display  All (<i class="bi bi-eye"></i>), or Scroll To Top (<i className="bi bi-arrow-bar-up"></i>) from the navigation bar.
           </p>
         </div>
 
