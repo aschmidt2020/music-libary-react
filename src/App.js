@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import DisplayMusicTable from './Components/DisplayMusicTable/DisplayMusicTable';
 import axios from 'axios';
-import SearchBar from './Components/SearchBar/SearchBar';
 import FilterMusic from './Components/FilterMusic/FilterMusic';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
+import SearchBarMultiple from './Components/SearchBarMultiple/SearchBarMultiple';
 
 function App() {
 
@@ -73,11 +73,9 @@ function App() {
         </div>
 
         <div className='row'>
-          <div className='col-2' style={{'marginTop':'-3.2em'}}>
-            <SearchBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
-            <span><br></br></span>
+          <div className='col-2' style={{'marginTop':'1em'}}>
+            <SearchBarMultiple allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
             <FilterMusic allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
-
           </div>
           <div className='col-8'>
             <DisplayMusicTable songs={songs}/>

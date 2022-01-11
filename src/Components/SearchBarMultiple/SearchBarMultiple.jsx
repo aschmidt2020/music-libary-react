@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-const SearchBar = (props) => {
+const SearchBarMultiple = (props) => {
     const [title, setTitle] = useState('');
     const [album, setAlbum] = useState('');
     const [artist, setArtist] = useState('');
@@ -97,6 +97,6 @@ const SearchBar = (props) => {
     );
 }
  
-export default SearchBar;
+export default SearchBarMultiple;
 
 

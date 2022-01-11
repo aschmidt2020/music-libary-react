@@ -1,6 +1,7 @@
 import GetAllSongs from "../GetAllSongs/GetAllSongs";
 import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBarSingle from "../SearchBarSingle/SearchBarSingle";
+
 
 const NavBar = (props) => {
 
@@ -11,16 +12,16 @@ const NavBar = (props) => {
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav"  style={{'marginLeft':'70em'}} >
-                <SearchBar allSongs={props.allSongs} songs={props.songs} getSpecificSong={props.getSpecificSong}/>
-                <GetAllSongs navbar='true' allSongs={props.allSongs} setAllSongs={props.setAllSongs}/>
-                <ScrollToTopButton />
-            </div>
+            <div className="collapse navbar-collapse">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{'marginLeft':'70%'}}>
+                <li className="nav-item"><GetAllSongs navbar='true' allSongs={props.allSongs} setAllSongs={props.setAllSongs}/></li>
+                <li className="nav-item"><ScrollToTopButton /></li>
+                <li className="nav-item"><SearchBarSingle allSongs={props.allSongs} songs={props.songs} getSpecificSong={props.getSpecificSong}/></li>
+            </ul>
             </div>
         </div>
         </nav>
     );
 }
- 
+
 export default NavBar;
