@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { getArtists } from './FilterArtistFunction'; 
-import { getAlbums } from './FilterAlbumFunction';
-import { getGenres } from './FilterGenreFunction';
-import { getReleaseDates } from './FilterReleaseDateFunction';
+import React, { useEffect, useState } from 'react';
+import { getValues } from './FilterFunction';
 
 const FilterMusic = (props) => {
     const [artists, setArtists] = useState([]);
@@ -13,22 +10,22 @@ const FilterMusic = (props) => {
     const [show, setShow] = useState(false);
     const [selectedBoxes, setSelectedBoxes] = useState([])
 
-    function handleClick() {
-        let artists = getArtists(props.songs);
-        let albums = getAlbums(props.songs);
-        let genres = getGenres(props.songs);
-        let releaseDatesList = getReleaseDates(props.songs);
+    useEffect(() => {
+        let artistsList = getValues('artist', props.songs);
+        let albumsList = getValues('album', props.songs);
+        let genresList = getValues('genre', props.songs);
+        let releaseDatesList = getValues('releaseDate', props.songs)
 
-        setShow(!show);
-        setArtists(artists);
-        setAlbums(albums);
-        setGenres(genres);
+        setArtists(artistsList);
+        setAlbums(albumsList);
+        setGenres(genresList);
         setReleaseDates(releaseDatesList);
-    }
+    }, [props.songs])
 
-    
+    const handleClick = () => {setShow(!show)}
+
     function toggleCheckbox(event) {
-        debugger
+        //debugger
         let tempList = [...selectedBoxes];
         
         if(tempList.includes(event.target.value)){
@@ -43,28 +40,32 @@ const FilterMusic = (props) => {
         else {
             tempList.push(event.target.value)
         };
-        debugger
+        //debugger
         setSelectedBoxes(tempList)
     }
 
-
     function handleSubmit(event){
         event.preventDefault();
-        debugger
+        //debugger
         let filteredSongs = props.songs.filter( e => {
             if(selectedBoxes.includes(e.artist) || selectedBoxes.includes(e.album) || selectedBoxes.includes(e.genre) || selectedBoxes.includes(e.releaseDate)){
                 return true;
             }
         })
 
-        debugger
+        //debugger
         props.getFilteredSongs(filteredSongs);
         resetForm();
     }
 
     function resetForm() {
         setSelectedBoxes([]);
-        setShow(false)
+        //setShow(false) //will automatically close button
+    }
+
+    function resetAllFilters() {
+        setSelectedBoxes([]);
+        props.getAllSongs();
     }
 
     if(show){
@@ -111,7 +112,8 @@ const FilterMusic = (props) => {
 
                     <span><br></br></span>
 
-                    <button type='submit' className='btn btn-secondary filter-list-text' style={{'marginLeft': '5em'}}>Filter</button>
+                    <button onClick={resetAllFilters} type='reset' className='btn btn-secondary filter-list-text' style={{'marginLeft': '2em'}}>Reset All Filters</button>
+                    <button type='submit' className='btn btn-primary filter-list-text' style={{'marginLeft': '1em'}}>Filter</button>
                 </form>
 
             </div>

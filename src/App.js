@@ -47,7 +47,7 @@ function App() {
 
         <div className='row' style={{'marginTop':'2em'}}>
           <div className='col-2'>
-            <FilterMusic songs={songs} getFilteredSongs={getFilteredSongs}/>
+            <FilterMusic songs={songs} getFilteredSongs={getFilteredSongs} getAllSongs={getAllSongs}/>
           </div>
           <div className='col-7'>
             <DisplayMusicTable songs={songs}/>
