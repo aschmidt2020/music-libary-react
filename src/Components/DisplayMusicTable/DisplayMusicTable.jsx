@@ -1,6 +1,6 @@
 const DisplayMusicTable = (props) => {
     return ( 
-        <table className="table text-align-center" style={{'marginTop' : '2em'}}>
+        <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
           <tr>
             <th>ID</th>

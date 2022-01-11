@@ -42,7 +42,7 @@ const SearchBar = (props) => {
     return ( 
         <>
       <Button variant="btn bg-transparent" onClick={handleShow}>
-      < i className="bi bi-search"></i>
+      <i className="bi bi-search"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
