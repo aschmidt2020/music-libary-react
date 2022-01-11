@@ -4,6 +4,8 @@ import axios from 'axios';
 import SearchBar from './Components/SearchBar/SearchBar';
 import FilterMusic from './Components/FilterMusic/FilterMusic';
 import './App.css';
+import NavBar from './Components/NavBar/NavBar';
+import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
 
 function App() {
 
@@ -45,7 +47,8 @@ function App() {
     <div>
       <div className='container-fluid'>
         <div className='row' style={{'marginBottom':'2em'}}>
-          <h1 className='text-align-center' style={{'marginTop':'1em'}}>Welcome to Music<small className='text-muted'>Library</small>!</h1>
+          <NavBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong} getAllSongs={getAllSongs}/>
+          <h1 className='text-align-center' style={{'marginTop':'2em'}}>Welcome to Music<small className='text-muted'>Library</small>!</h1>
           <p class="text-align-center" style={{'marginTop':'1em'}}>
           Welcome to your own MusicLibrary. You can filter songs by selecting the <i className="bi bi-filter-square"></i> icon on the left-hand side.
           <br></br>
@@ -55,12 +58,12 @@ function App() {
           </p>
         </div>
 
-        <div className='row'>
+        <div className='row sticky-top'>
           <div className='col-2'>
             {/* for spacing */}
           </div>
           <div className='col-8'>
-            <button className='btn btn-primary text-align-center' onClick={getAllSongs} style={{'width':'100%'}}>Display All Songs</button>
+            <GetAllSongs navbar='false' allSongs={allSongs} setAllSongs={setAllSongsFunction}/>
           </div>
           <div className='col-2'>
             {/* for spacing */}
