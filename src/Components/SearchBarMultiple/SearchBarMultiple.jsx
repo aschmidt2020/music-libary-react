@@ -20,10 +20,10 @@ const SearchBarMultiple = (props) => {
         //debugger
         
         let song = props.songs.filter (e => {
-                     if(e.title == title){return true};
-                     if(e.album == album){return true};
-                     if(e.artist == artist){return true};
-                     if(e.genre == genre){return true};
+                     if(e.title.toLowerCase() == title.toLowerCase()){return true};
+                     if(e.album.toLowerCase() == album.toLowerCase()){return true};
+                     if(e.artist.toLowerCase() == artist.toLowerCase()){return true};
+                     if(e.genre.toLowerCase() == genre.toLowerCase()){return true};
                      if(e.releaseDate == releaseDateFormat){return true};
                  });
         props.getSpecificSong(song);

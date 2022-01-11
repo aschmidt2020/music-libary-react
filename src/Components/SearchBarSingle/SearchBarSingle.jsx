@@ -4,12 +4,13 @@ const SearchBarSingle = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
+        let searchTermLower = searchTerm.toLowerCase()
         let song = props.allSongs.filter (e => {
-            if(e.title.includes(searchTerm)){return true}; //kept all if statements so that each 'e' would have to loop through each statement
-            if(e.album.includes(searchTerm)){return true};
-            if(e.artist.includes(searchTerm)){return true};
-            if(e.genre.includes(searchTerm)){return true};
-            if(e.releaseDate.includes(searchTerm)){return true};
+            if(e.title.toLowerCase().includes(searchTermLower)){return true}; //kept all if statements so that each 'e' would have to loop through each statement
+            if(e.album.toLowerCase().includes(searchTermLower)){return true};
+            if(e.artist.toLowerCase().includes(searchTermLower)){return true};
+            if(e.genre.toLowerCase().includes(searchTermLower)){return true};
+            if(e.releaseDate.toLowerCase().includes(searchTermLower)){return true};
         });
     
         props.getSpecificSong(song);
