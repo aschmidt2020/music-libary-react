@@ -36,12 +36,22 @@ const SearchBar = (props) => {
         setArtist('');
         setGenre('');
         setReleaseDate('');
+        handleClose();
     }
 
     return ( 
+        <>
+      <Button variant="btn bg-transparent" onClick={handleShow}>
+      < i className="bi bi-search"></i>
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Search</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
 
         <form className='search-form' onSubmit={handleSubmit}>
-            <h2>Search</h2>
             <div className='input-group mb-3'>
                 <label className='input-group-text'>Title</label>
                 <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
@@ -66,9 +76,22 @@ const SearchBar = (props) => {
                 <label className='input-group-text'>Release Date</label>
                 <input className='form-control' type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)}/>  
             </div>
-                <button type='submit' className='btn btn-secondary' style={{'marginLeft': '7em'}}>Search</button>
 
         </form>
+        
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button type='submit' variant="primary" onClick={handleSubmit}>
+            Search
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+
+        
 
 
     );

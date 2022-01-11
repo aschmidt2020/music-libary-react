@@ -81,7 +81,7 @@ const FilterMusic = (props) => {
 
     if(show){
         return(
-            <div>
+            <div style={{'marginLeft':'2em'}}>
                 <button className='btn bg-transparent' onClick={handleClick}>
                 <i className="bi bi-filter-square"></i>
                 </button>

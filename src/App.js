@@ -46,23 +46,27 @@ function App() {
             {/* for spacing */}
           </div>
           <div className='col-8'>
-            <button className='btn btn-primary' onClick={getAllSongs} style={{'width':'100%'}}>Display All Songs</button>
+            
+            <button className='btn btn-primary text-align-center' onClick={getAllSongs} style={{'width':'100%'}}>Display All Songs</button>
           </div>
           <div className='col-2'>
             {/* for spacing */}
           </div>
         </div>
 
-        <div className='row' style={{'marginTop':'2em'}}>
-          <div className='col-2'>
+        <div className='row'>
+          <div className='col-2' style={{'marginTop':'-2.2em'}}>
+            <SearchBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
+            <span><br></br></span>
             <FilterMusic allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
+
           </div>
-          <div className='col-7'>
+          <div className='col-8'>
             <DisplayMusicTable songs={songs}/>
           </div>
 
-          <div className='col-3'>
-            <SearchBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
+          <div className='col-2'>
+            {/* empty column for spacing */}
           </div>
         </div>
 
