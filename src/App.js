@@ -94,6 +94,8 @@ function App() {
           <br></br>
           When you have completed any filtering or searching, use the 'Display All Songs' button to show all the songs again.
           <br></br>
+          You can also Like A Song (<i className="bi bi-hand-thumbs-up"></i>), Edit A Song (<i className="bi bi-pen"></i>), and Delete A Song (<i className="bi bi-trash"></i>) within the table.
+          <br></br>
           You can also Add A Song (<i className="bi bi-plus-lg"></i>), Filter (<i className="bi bi-filter-square"></i>), Display  All (<i className="bi bi-eye"></i>) or Scroll To Top (<i className="bi bi-arrow-bar-up"></i>) from the navigation bar.
           </p>
         </div>

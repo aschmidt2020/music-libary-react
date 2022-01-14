@@ -10,7 +10,7 @@ const SearchBarSingle = (props) => {
             if(e.album.toLowerCase().includes(searchTermLower)){return true};
             if(e.artist.toLowerCase().includes(searchTermLower)){return true};
             if(e.genre.toLowerCase().includes(searchTermLower)){return true};
-            if(e.releaseDate.toLowerCase().includes(searchTermLower)){return true};
+            if(e.release_date.toLowerCase().includes(searchTermLower)){return true};
         });
     
         props.getSpecificSong(song);
