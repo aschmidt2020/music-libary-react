@@ -53,7 +53,6 @@ const AddLike = (props) => {
                 <i class="bi bi-hand-thumbs-down"></i>
                 </Button>
                 </div>
-
         )
 
     }

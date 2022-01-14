@@ -8,7 +8,6 @@ const DisplayMusicTable = (props) => {
         <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
           <tr>
-            <th>#</th>
             <th>Song Title</th>
             <th>Album</th>
             <th>Artist</th>
@@ -21,7 +20,6 @@ const DisplayMusicTable = (props) => {
             if(song.album_art_link != null){
               return (
                 <tr key={song.id}>
-                  <td>{index + 1}</td> 
                   <td>{song.title}</td>
                   <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}}/></td>
                   <td>{song.artist}</td>
@@ -35,7 +33,6 @@ const DisplayMusicTable = (props) => {
             }
             return ( //parenthesis because you are returning multiple lines of code
                 <tr key={song.id}>
-                  <td>{index + 1}</td> 
                   <td>{song.title}</td>
                   <td>{song.album}</td>
                   <td>{song.artist}</td>
