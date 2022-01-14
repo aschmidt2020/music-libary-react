@@ -1,3 +1,4 @@
+import DeleteSong from '../DeleteSong/DeleteSong';
 import UpdateSong from '../UpdateSong/UpdateSong'
 //?? release_date versus releaseDate
 
@@ -24,7 +25,8 @@ const DisplayMusicTable = (props) => {
                   <td>{song.artist}</td>
                   <td>{song.genre}</td>
                   <td>{song.release_date}</td> 
-                  <td> <UpdateSong song={song}updateSong={props.updateSong}/></td>
+                  <td> <UpdateSong song={song} updateSong={props.updateSong}/></td>
+                  <td> <DeleteSong song={song} deleteSong={props.deleteSong}/></td>
                 </tr>
             )
           })}

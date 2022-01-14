@@ -55,6 +55,16 @@ function App() {
   getAllSongs()
 }
 
+  async function deleteSong(song){
+    debugger
+    console.log(`http://127.0.0.1:8000/music/${song.id}/`)
+    await axios({
+    method: 'delete',
+    url: `http://127.0.0.1:8000/music/${song.id}/`,
+  });
+
+  getAllSongs()
+  }
 
   function setAllSongsFunction(allSongs){
     setSongs(allSongs);
@@ -109,7 +119,7 @@ function App() {
             
           </div>
           <div className='col-8'>
-            <DisplayMusicTable songs={songs} updateSong={updateSong}/>
+            <DisplayMusicTable songs={songs} updateSong={updateSong} deleteSong={deleteSong}/>
           </div>
 
           <div className='col-2'>
