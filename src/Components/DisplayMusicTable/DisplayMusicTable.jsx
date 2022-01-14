@@ -7,6 +7,12 @@ import UpdateSong from '../UpdateSong/UpdateSong'
 
 const DisplayMusicTable = (props) => {
 
+    const [rerender, setRerender] = useState(false);
+    
+    useEffect(() => {
+      setRerender(!rerender)
+    }, [props.songs])
+
     return ( 
         <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
