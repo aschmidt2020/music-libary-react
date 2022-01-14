@@ -50,8 +50,8 @@ const UpdateSong = (props) => {
     }
 
     return (
-            <div style={{'marginLeft':'80%'}}>
-              <Button variant="btn btn-outline-secondary" onClick={handleShow} data-toggle='popover' title='Edit Song' data-content='Edit Song' trigger='hover'>
+            <div>
+              <Button variant="btn btn-outline-secondary" style={{'marginLeft': '-0.5em'}} onClick={handleShow} data-toggle='popover' title='Edit Song' data-content='Edit Song' trigger='hover'>
               <i className="bi bi-pen"></i>
               </Button>
     

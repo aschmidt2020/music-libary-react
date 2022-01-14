@@ -92,58 +92,6 @@ const FilterMusic = (props) => {
         
     }
 
-    if(showPage && props.navbar == 'false'){
-        return(
-            <div>
-                <button style={filterPageBox} className="btn btn-outline-secondary" data-toggle='popover' title='Filter' data-content='Filter' trigger='hover' onClick={handleClick}>
-                <i className="bi bi-filter-square"></i>
-                </button>
-                
-                <form id='filterForm' style={{'marginLeft':'2em'}} onSubmit={handleSubmit}>
-                    <span className='filter-list-text'>Filter by Artist</span>
-                    {artists.map((artist, index) => {
-                        return (
-                            <li key={index} className='filter-list-text'><input type='checkbox' value={artist} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{artist}</li>
-                        )
-                    })}
-
-                    <span><br></br></span>
-
-                    <span className='filter-list-text'>Filter by Album</span>
-                    {albums.map((album, index) => {
-                        return (
-                            <li key={index} className='filter-list-text'><input type='checkbox' value={album} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{album}</li>
-                        )
-                    })}
-
-                    <span><br></br></span>
-
-                    <span className='filter-list-text'>Filter by Genre</span>
-                    {genres.map((genre, index) => {
-                        return (
-                            <li key={index} className='filter-list-text'><input type='checkbox' value={genre} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{genre}</li>
-                        )
-                    })}
-
-                    <span><br></br></span>
-
-                    <span className='filter-list-text'>Filter by Release Dates</span>
-                    {releaseDates.map((date, index) => {
-                        return (
-                            <li key={index} className='filter-list-text'><input type='checkbox' value={date} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{date}</li>
-                        )
-                    })}
-
-                    <span><br></br></span>
-
-                    <button onClick={handleReset} type='reset' className='btn btn-secondary filter-list-text' style={{'marginLeft': '2em'}}>Reset All Filters</button>
-                    <button type='submit' className='btn btn-primary filter-list-text' style={{'marginLeft': '1em'}}>Filter</button>
-                </form>
-
-            </div>
-        )
-    }
-
     if(props.navbar == 'true'){
         return(
             <>

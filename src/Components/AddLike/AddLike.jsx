@@ -45,11 +45,11 @@ const AddLike = (props) => {
     if(props.song.likes > 0){
         return (
                 <div>
-                <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '1em'}} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
+                <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '1em'}}  data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
                 <i className="bi bi-hand-thumbs-up-fill"></i> {props.song.likes}
                 </Button>
 
-                <Button variant="btn btn-outline-secondary" onClick={handleClickDislike} style={{'marginRight': '-4em'}} data-toggle='popover' title='Remove Like' data-content='Remove Like' trigger='hover'>
+                <Button variant="btn btn-outline-secondary" onClick={handleClickDislike} style={{'marginRight': '-3em'}} data-toggle='popover' title='Remove Like' data-content='Remove Like' trigger='hover'>
                 <i className="bi bi-hand-thumbs-down"></i>
                 </Button>
                 </div>
@@ -57,7 +57,7 @@ const AddLike = (props) => {
 
     }
     return (
-            <Button variant="btn btn-outline-secondary" onClick={handleClick} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
+            <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '1em'}} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
             <i className="bi bi-hand-thumbs-up"></i>
             </Button>
 

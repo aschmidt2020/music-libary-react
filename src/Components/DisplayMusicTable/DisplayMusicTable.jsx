@@ -25,10 +25,10 @@ const DisplayMusicTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.songs.map((song) => {
+          {props.songs.map((song, index) => {
             if(song.album_art_link != null){
               return (
-                <tr key={song.id}>
+                <tr key={song.id} id={index}>
                   <td>{song.title} </td>
                   <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}}/></td>
                   <td>{song.artist}</td>

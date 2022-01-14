@@ -19,8 +19,7 @@ function App() {
 
   function setBackground(){
     document.body.style.backgroundColor = '#fafafa';
-    document.body.style.marginLeft = '2em';
-    document.body.style.marginRight = '2em'
+    document.body.style.marginLeft = '-2em';
   }
 
   async function getAllSongs(){
@@ -74,8 +73,50 @@ function App() {
     setSongs(song);
   }
 
-  function setSongsOrder(song){
-    setAllSongs(song);
+  function setSongsOrder(title){
+    if(title){
+      let songsOrder = songs.sort(compareTitles);
+      let allSongsOrder = allSongs.sort(compareTitles);
+      console.log('alphabet songs app.js', songsOrder);
+      console.log('all alphabet songs app.js', allSongsOrder)
+      debugger
+      setSongs(songsOrder);
+      setAllSongs(allSongsOrder);
+    }
+    else{
+      let songsOrder = songs.sort(compareId);
+      let allSongsOrder = allSongs.sort(compareId);
+      console.log('time songs app.js', songsOrder);
+      console.log('all time songs app.js', allSongsOrder)
+      debugger
+      setSongs(songsOrder);
+      setAllSongs(allSongsOrder);
+
+    }
+
+    debugger
+
+    console.log('after set songs app.js', songs);
+    console.log('after set allsongs app.js', allSongs);
+    
+  }
+
+  function compareTitles(x,y) 
+  {
+  if (x.title < y.title)
+      return -1;
+  if (x.title > y.title)
+      return 1;
+  return 0;
+  }
+
+ function compareId(x,y) 
+  {
+  if (x.id < y.id)
+      return -1;
+  if (x.id > y.id)
+      return 1;
+  return 0;
   }
 
   return (
@@ -112,20 +153,15 @@ function App() {
         </div>
 
         <div className='row'>
-          <div className='col-2' style={{'marginTop':'1em'}}>
-              <div>
-                <AddSong addSong={addSong}/>
-              </div>
-              <div>
-                <FilterMusic navbar='false' allSongs={allSongs} songs={songs} updateSetSongs={updateSetSongs} setAllSongs={setAllSongsFunction}/>
-              </div>
+          <div className='col-1' style={{'marginTop':'1em'}}>
+            {/* empty column for spacing */}
             
           </div>
-          <div className='col-8'>
+          <div className='col-10'>
             <DisplayMusicTable allSongs={songs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
           </div>
 
-          <div className='col-2'>
+          <div className='col-1'>
             {/* empty column for spacing */}
           </div>
         </div>
