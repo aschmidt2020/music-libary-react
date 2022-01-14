@@ -49,7 +49,7 @@ const AddSong = (props) => {
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Search</Modal.Title>
+              <Modal.Title>Add Song</Modal.Title>
             </Modal.Header>
             <Modal.Body>
 
@@ -92,7 +92,7 @@ const AddSong = (props) => {
                 Close
               </Button>
               <Button type='submit' variant="primary" onClick={handleSubmit}>
-                Search
+                Add
               </Button>
             </Modal.Footer>
           </Modal>

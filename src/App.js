@@ -41,6 +41,21 @@ function App() {
 
     getAllSongs()
   }
+
+  async function updateSong(song){
+    debugger
+    console.log(`http://127.0.0.1:8000/music/${song.id}/`)
+    await axios({
+    method: 'put',
+    url: `http://127.0.0.1:8000/music/${song.id}/`,
+    headers: {}, 
+    data: song
+  });
+
+  getAllSongs()
+}
+
+
   function setAllSongsFunction(allSongs){
     setSongs(allSongs);
     //debugger
@@ -94,7 +109,7 @@ function App() {
             
           </div>
           <div className='col-8'>
-            <DisplayMusicTable songs={songs}/>
+            <DisplayMusicTable songs={songs} updateSong={updateSong}/>
           </div>
 
           <div className='col-2'>
