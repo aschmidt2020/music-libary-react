@@ -11,11 +11,15 @@ const SortByTitle = (props) => {
         setSortByTitle(oppositeState);
         if(oppositeState){
             let alphabetSongs = props.songs.sort(compareTitles);
-            props.updateSetSongs(alphabetSongs)
+            let allAlphabetSongs = props.allSongs.sort(compareTitles);
+            props.updateSetSongs(alphabetSongs);
+            props.setSongsOrder(allAlphabetSongs);
         }
         else{
-            let timeSongs = props.songs.sort(compareId)
-            props.updateSetSongs(timeSongs)
+            let timeSongs = props.songs.sort(compareId);
+            let allTimeSongs = props.allSongs.sort(compareId);
+            props.updateSetSongs(timeSongs);
+            props.setSongsOrder(allTimeSongs)
         }
 
     }

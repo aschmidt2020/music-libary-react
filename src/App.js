@@ -74,6 +74,10 @@ function App() {
     setSongs(song);
   }
 
+  function setSongsOrder(song){
+    setAllSongs(song);
+  }
+
   return (
     <div>
       <div className='container-fluid'>
@@ -118,7 +122,7 @@ function App() {
             
           </div>
           <div className='col-8'>
-            <DisplayMusicTable songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs}/>
+            <DisplayMusicTable allSongs={songs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
           </div>
 
           <div className='col-2'>

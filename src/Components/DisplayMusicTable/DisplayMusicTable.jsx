@@ -8,7 +8,7 @@ import UpdateSong from '../UpdateSong/UpdateSong'
 const DisplayMusicTable = (props) => {
 
     const [rerender, setRerender] = useState(false);
-    
+
     useEffect(() => {
       setRerender(!rerender)
     }, [props.songs])
@@ -17,7 +17,7 @@ const DisplayMusicTable = (props) => {
         <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
           <tr>
-            <th>Song Title <SortByTitle songs={props.songs} updateSetSongs={props.updateSetSongs}/></th>
+            <th>Song Title <SortByTitle allSongs={props.allSongs} songs={props.songs} updateSetSongs={props.updateSetSongs} setSongsOrder={props.setSongsOrder}/></th>
             <th>Album</th>
             <th>Artist</th>
             <th>Genre</th>
