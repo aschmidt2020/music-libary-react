@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import DisplayMusicTable from './Components/DisplayMusicTable/DisplayMusicTable';
 import axios from 'axios';
-import FilterMusic from './Components/FilterMusic/FilterMusic';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
-import AddSong from './Components/AddSong/AddSong';
+import SortByTitle from './Components/SortByTitle/SortByTitle';
 
 function App() {
 
@@ -79,7 +78,7 @@ function App() {
       let allSongsOrder = allSongs.sort(compareTitles);
       console.log('alphabet songs app.js', songsOrder);
       console.log('all alphabet songs app.js', allSongsOrder)
-      debugger
+      //debugger
       setSongs(songsOrder);
       setAllSongs(allSongsOrder);
     }
@@ -88,13 +87,13 @@ function App() {
       let allSongsOrder = allSongs.sort(compareId);
       console.log('time songs app.js', songsOrder);
       console.log('all time songs app.js', allSongsOrder)
-      debugger
+      //debugger
       setSongs(songsOrder);
       setAllSongs(allSongsOrder);
 
     }
 
-    debugger
+    //debugger
 
     console.log('after set songs app.js', songs);
     console.log('after set allsongs app.js', allSongs);
@@ -158,7 +157,8 @@ function App() {
             
           </div>
           <div className='col-10'>
-            <DisplayMusicTable allSongs={songs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
+            <SortByTitle allSongs={allSongs} songs={songs} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
+            <DisplayMusicTable allSongs={allSongs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
           </div>
 
           <div className='col-1'>
