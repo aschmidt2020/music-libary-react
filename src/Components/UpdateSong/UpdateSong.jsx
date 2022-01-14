@@ -79,7 +79,7 @@ const UpdateSong = (props) => {
     
                     <div className='input-group mb-3'>
                         <label className='input-group-text'>Album Art Link</label>
-                        <input className='form-control' type='text' onChange={(event) => setAlbumArt(event.target.value)}/>
+                        <input className='form-control' type='text' value={albumArt} onChange={(event) => setAlbumArt(event.target.value)}/>
                     </div>
     
                     <div className='input-group mb-3'>
