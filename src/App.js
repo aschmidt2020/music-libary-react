@@ -49,7 +49,7 @@ function App() {
     method: 'put',
     url: `http://127.0.0.1:8000/music/${song.id}/`,
     headers: {}, 
-    data: song
+    data: song,
   });
 
   getAllSongs()

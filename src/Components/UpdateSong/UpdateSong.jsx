@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 const UpdateSong = (props) => {
     const [title, setTitle] = useState(props.song.title);
-    //const [albumArt, setAlbumArt] = useState('')
+    const [albumArt, setAlbumArt] = useState(props.song.album_art_link)
     const [album, setAlbum] = useState(props.song.album);
     const [artist, setArtist] = useState(props.song.artist);
     const [genre, setGenre] = useState(props.song.genre);
@@ -16,7 +16,7 @@ const UpdateSong = (props) => {
      setShow(false);
      setTitle(props.song.title);
      setAlbum(props.song.album);
-     //setAlbumArt('');
+     setAlbumArt(props.song.album_art_link);
      setArtist(props.song.artist);
      setGenre(props.song.genre);
      setReleaseDate(props.song.release_date);
@@ -27,13 +27,18 @@ const UpdateSong = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // function handleImageChange(event){
+    //     setAlbumArt(event.target.files[0]);
+    //     debugger
+    // }
+
     function handleSubmit(event){
         event.preventDefault();
         debugger
         let updatedSong = {
           id: props.song.id,
           title: title,
-          album_art: null,
+          album_art_link: albumArt,
           album: album,
           artist: artist,
           genre: genre,
@@ -41,17 +46,6 @@ const UpdateSong = (props) => {
           likes: likes
         }
         props.updateSong(updatedSong);
-        handleClose();
-    }
-
-    function resetForm(){
-        // setTitle('');
-        // setAlbum('');
-        // //setAlbumArt('');
-        // setArtist('');
-        // setGenre('');
-        // setReleaseDate('');
-        // setLikes(0)
         handleClose();
     }
 
@@ -67,7 +61,7 @@ const UpdateSong = (props) => {
                 </Modal.Header>
                 <Modal.Body>
     
-                <form className='search-form' onSubmit={handleSubmit}>
+                <form className='search-form' onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className='input-group mb-3'>
                         <label className='input-group-text'>Title</label>
                         <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
@@ -83,10 +77,10 @@ const UpdateSong = (props) => {
                         <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
                     </div>
     
-                    {/* <div className='input-group mb-3'>
-                        <label className='input-group-text'>Album Art</label>
-                        <input className='form-control' type='file' value={albumArt} onChange={(event) => setAlbumArt(event.target.value)}/>
-                    </div> */}
+                    <div className='input-group mb-3'>
+                        <label className='input-group-text'>Album Art Link</label>
+                        <input className='form-control' type='text' onChange={(event) => setAlbumArt(event.target.value)}/>
+                    </div>
     
                     <div className='input-group mb-3'>
                         <label className='input-group-text'>Genre</label>

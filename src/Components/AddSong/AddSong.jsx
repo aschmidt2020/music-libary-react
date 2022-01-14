@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 const AddSong = (props) => {
     const [title, setTitle] = useState('');
-    //const [albumArt, setAlbumArt] = useState('')
+    const [albumArt, setAlbumArt] = useState('')
     const [album, setAlbum] = useState('');
     const [artist, setArtist] = useState('');
     const [genre, setGenre] = useState('');
@@ -19,7 +19,7 @@ const AddSong = (props) => {
         event.preventDefault();
         let newSong = {
           title: title,
-          album_art: null,
+          album_art_link: albumArt,
           album: album,
           artist: artist,
           genre: genre,
@@ -33,7 +33,7 @@ const AddSong = (props) => {
     function resetForm(){
         setTitle('');
         setAlbum('');
-        //setAlbumArt('');
+        setAlbumArt('');
         setArtist('');
         setGenre('');
         setReleaseDate('');
@@ -69,10 +69,10 @@ const AddSong = (props) => {
                     <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
                 </div>
 
-                {/* <div className='input-group mb-3'>
-                    <label className='input-group-text'>Album Art</label>
-                    <input className='form-control' type='file' value={albumArt} onChange={(event) => setAlbumArt(event.target.value)}/>
-                </div> */}
+                <div className='input-group mb-3'>
+                    <label className='input-group-text'>Album Art Link</label>
+                    <input className='form-control' type='text' value={albumArt} onChange={(event) => setAlbumArt(event.target.value)}/>
+                </div>
 
                 <div className='input-group mb-3'>
                     <label className='input-group-text'>Genre</label>

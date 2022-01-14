@@ -18,6 +18,21 @@ const DisplayMusicTable = (props) => {
         </thead>
         <tbody>
           {props.songs.map((song, index) => {
+            if(song.album_art_link != null){
+              return (
+                <tr key={song.id}>
+                  <td>{index + 1}</td> 
+                  <td>{song.title}</td>
+                  <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}}/></td>
+                  <td>{song.artist}</td>
+                  <td>{song.genre}</td>
+                  <td>{song.release_date}</td> 
+                  <td><AddLike song={song} updateSong={props.updateSong}/></td>
+                  <td><UpdateSong song={song} updateSong={props.updateSong}/></td>
+                  <td><DeleteSong song={song} deleteSong={props.deleteSong}/></td>
+                </tr>
+              )
+            }
             return ( //parenthesis because you are returning multiple lines of code
                 <tr key={song.id}>
                   <td>{index + 1}</td> 
