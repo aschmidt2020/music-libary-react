@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-const SearchBarMultiple = (props) => {
+const AddSong = (props) => {
     const [title, setTitle] = useState('');
+    //const [albumArt, setAlbumArt] = useState('')
     const [album, setAlbum] = useState('');
     const [artist, setArtist] = useState('');
     const [genre, setGenre] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
+    const [likes, setLikes] = useState(0);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -15,34 +17,34 @@ const SearchBarMultiple = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        let releaseDateFormat = releaseDate[5] + releaseDate[6] + '/' + releaseDate[8] + releaseDate[9] + '/' + releaseDate [0] + releaseDate [1] + releaseDate [2] + releaseDate [3]
-        
-        //debugger
-        
-        let song = props.songs.filter (e => {
-                     if(e.title.toLowerCase() == title.toLowerCase()){return true};
-                     if(e.album.toLowerCase() == album.toLowerCase()){return true};
-                     if(e.artist.toLowerCase() == artist.toLowerCase()){return true};
-                     if(e.genre.toLowerCase() == genre.toLowerCase()){return true};
-                     if(e.releaseDate == releaseDateFormat){return true};
-                 });
-        props.getSpecificSong(song);
+        let newSong = {
+          title: title,
+          album_art: null,
+          album: album,
+          artist: artist,
+          genre: genre,
+          release_date: releaseDate,
+          likes: likes
+        }
+        props.addSong(newSong);
         resetForm();
     }
 
     function resetForm(){
         setTitle('');
         setAlbum('');
+        //setAlbumArt('');
         setArtist('');
         setGenre('');
         setReleaseDate('');
+        setLikes(0)
         handleClose();
     }
 
     return ( 
         <div style={{'marginLeft':'80%'}}>
-          <Button variant="btn btn-outline-secondary" onClick={handleShow} style={{'marginTop':'1em'}} data-toggle='popover' title='Search' data-content='Search' trigger='hover'>
-          <i className="bi bi-search"></i>
+          <Button variant="btn btn-outline-secondary" onClick={handleShow} style={{'marginTop':'1em'}} data-toggle='popover' title='Add Song' data-content='Add Song' trigger='hover'>
+          <i className="bi bi-plus-lg"></i>
           </Button>
 
           <Modal show={show} onHide={handleClose}>
@@ -66,6 +68,11 @@ const SearchBarMultiple = (props) => {
                     <label className='input-group-text'>Album</label>
                     <input className='form-control' type='text' value={album} onChange={(event) => setAlbum(event.target.value)}/>
                 </div>
+
+                {/* <div className='input-group mb-3'>
+                    <label className='input-group-text'>Album Art</label>
+                    <input className='form-control' type='file' value={albumArt} onChange={(event) => setAlbumArt(event.target.value)}/>
+                </div> */}
 
                 <div className='input-group mb-3'>
                     <label className='input-group-text'>Genre</label>
@@ -93,6 +100,6 @@ const SearchBarMultiple = (props) => {
     );
 }
  
-export default SearchBarMultiple;
+export default AddSong;
 
 

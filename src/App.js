@@ -5,7 +5,7 @@ import FilterMusic from './Components/FilterMusic/FilterMusic';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
-import SearchBarMultiple from './Components/SearchBarMultiple/SearchBarMultiple';
+import AddSong from './Components/AddSong/AddSong';
 
 function App() {
 
@@ -24,12 +24,23 @@ function App() {
   }
 
   async function getAllSongs(){
-    let response = await axios.get('http://www.devcodecampmusiclibrary.com/api/music');
+    let response = await axios.get('http://127.0.0.1:8000/music/');
     setAllSongs(response.data);
     setSongs(response.data);
     //debugger
   }
 
+  async function addSong(song){
+      debugger
+      await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/music/',
+      headers: {}, 
+      data: song
+    });
+
+    getAllSongs()
+  }
   function setAllSongsFunction(allSongs){
     setSongs(allSongs);
     //debugger
@@ -75,7 +86,7 @@ function App() {
         <div className='row'>
           <div className='col-2' style={{'marginTop':'1em'}}>
               <div>
-                <SearchBarMultiple allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong}/>
+                <AddSong addSong={addSong}/>
               </div>
               <div>
                 <FilterMusic navbar='false' allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
