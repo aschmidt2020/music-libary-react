@@ -1,14 +1,17 @@
+import { useEffect, useState } from 'react';
 import AddLike from '../AddLike/AddLike';
 import DeleteSong from '../DeleteSong/DeleteSong';
+import SortByTitle from '../SortByTitle/SortByTitle';
 import UpdateSong from '../UpdateSong/UpdateSong'
 //?? release_date versus releaseDate
 
 const DisplayMusicTable = (props) => {
+
     return ( 
         <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
           <tr>
-            <th>Song Title</th>
+            <th>Song Title <SortByTitle songs={props.songs} updateSetSongs={props.updateSetSongs}/></th>
             <th>Album</th>
             <th>Artist</th>
             <th>Genre</th>
@@ -16,11 +19,11 @@ const DisplayMusicTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.songs.map((song, index) => {
+          {props.songs.map((song) => {
             if(song.album_art_link != null){
               return (
                 <tr key={song.id}>
-                  <td>{song.title}</td>
+                  <td>{song.title} </td>
                   <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}}/></td>
                   <td>{song.artist}</td>
                   <td>{song.genre}</td>

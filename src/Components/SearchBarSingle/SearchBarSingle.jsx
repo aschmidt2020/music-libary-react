@@ -13,7 +13,7 @@ const SearchBarSingle = (props) => {
             if(e.release_date.toLowerCase().includes(searchTermLower)){return true};
         });
     
-        props.getSpecificSong(song);
+        props.updateSetSongs(song);
     },[searchTerm])
 
 

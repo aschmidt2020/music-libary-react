@@ -35,3 +35,7 @@ li {
 .navbar.navbar-expand-lg.navbar-light.fixed-top {
     height: 60px;
 }
+
+.btn-link:hover {
+    background-color: grey;
+}

@@ -66,7 +66,7 @@ const FilterMusic = (props) => {
         })
 
         //debugger
-        props.getFilteredSongs(filteredSongs);
+        props.updateSetSongs(filteredSongs);
         resetForm();
     }
 

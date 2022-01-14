@@ -68,14 +68,9 @@ function App() {
 
   function setAllSongsFunction(allSongs){
     setSongs(allSongs);
-    //debugger
   }
 
-  function getSpecificSong(song){
-    setSongs(song);
-  }
-
-  function getFilteredSongs(song){
+  function updateSetSongs(song){
     setSongs(song);
   }
 
@@ -83,7 +78,7 @@ function App() {
     <div>
       <div className='container-fluid'>
         <div className='row' style={{'marginBottom':'2em'}}>
-          <NavBar allSongs={allSongs} songs={songs} getSpecificSong={getSpecificSong} getAllSongs={getAllSongs} setAllSongs={setAllSongsFunction} getFilteredSongs={getFilteredSongs}  addSong={addSong}/>
+          <NavBar allSongs={allSongs} songs={songs} updateSetSongs={updateSetSongs} getAllSongs={getAllSongs} setAllSongs={setAllSongsFunction}  addSong={addSong}/>
           <h1 className='text-align-center' style={{'marginTop':'2em'}}>Welcome to Music<small className='text-muted'>Library</small>!</h1>
           <p className="text-align-center" style={{'marginTop':'1em'}}>
           Welcome to your own MusicLibrary. You can easily search for a specific song from the Navigation Bar at the top of the page.
@@ -118,12 +113,12 @@ function App() {
                 <AddSong addSong={addSong}/>
               </div>
               <div>
-                <FilterMusic navbar='false' allSongs={allSongs} songs={songs} getFilteredSongs={getFilteredSongs} setAllSongs={setAllSongsFunction}/>
+                <FilterMusic navbar='false' allSongs={allSongs} songs={songs} updateSetSongs={updateSetSongs} setAllSongs={setAllSongsFunction}/>
               </div>
             
           </div>
           <div className='col-8'>
-            <DisplayMusicTable songs={songs} updateSong={updateSong} deleteSong={deleteSong}/>
+            <DisplayMusicTable songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs}/>
           </div>
 
           <div className='col-2'>

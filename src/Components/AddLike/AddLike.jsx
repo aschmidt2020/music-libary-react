@@ -50,7 +50,7 @@ const AddLike = (props) => {
                 </Button>
 
                 <Button variant="btn btn-outline-secondary" onClick={handleClickDislike} style={{'marginRight': '-4em'}} data-toggle='popover' title='Remove Like' data-content='Remove Like' trigger='hover'>
-                <i class="bi bi-hand-thumbs-down"></i>
+                <i className="bi bi-hand-thumbs-down"></i>
                 </Button>
                 </div>
         )
