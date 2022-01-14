@@ -2,6 +2,7 @@ import GetAllSongs from "../GetAllSongs/GetAllSongs";
 import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 import SearchBarSingle from "../SearchBarSingle/SearchBarSingle";
 import FilterMusic from "../FilterMusic/FilterMusic"
+import AddSong from "../AddSong/AddSong";
 
 const NavBar = (props) => {
 
@@ -14,7 +15,8 @@ const NavBar = (props) => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarExpand">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{'marginLeft':'65%'}}>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{'marginLeft':'60%'}}>
+                <li className="nav-item" style={{'marginTop':'-0.5em','marginRight':'2em'}}><AddSong navbar='true' addSong={props.addSong}/></li>
                 <li className="nav-item"><FilterMusic navbar='true' allSongs={props.allSongs} songs={props.songs} getFilteredSongs={props.getFilteredSongs} setAllSongs={props.setAllSongs}/></li>
                 <li className="nav-item"><GetAllSongs navbar='true' allSongs={props.allSongs} setAllSongs={props.setAllSongs}/></li>
                 <li className="nav-item"><ScrollToTopButton /></li>

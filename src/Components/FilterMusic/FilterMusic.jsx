@@ -28,7 +28,7 @@ const FilterMusic = (props) => {
         let artistsList = getValues('artist', props.songs);
         let albumsList = getValues('album', props.songs);
         let genresList = getValues('genre', props.songs);
-        let releaseDatesList = getValues('releaseDate', props.songs)
+        let releaseDatesList = getValues('release_date', props.songs)
 
         setArtists(artistsList);
         setAlbums(albumsList);
