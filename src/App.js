@@ -4,7 +4,6 @@ import axios from 'axios';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
-import SortByTitle from './Components/SortByTitle/SortByTitle';
 import WelcomeText from './Components/WelcomeText/WelcomeText';
 
 function App() {

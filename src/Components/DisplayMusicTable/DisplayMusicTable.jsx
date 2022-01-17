@@ -7,6 +7,14 @@ import UpdateSong from '../UpdateSong/UpdateSong'
 
 const DisplayMusicTable = (props) => {
 
+    const [songCount, setSongCount] = useState(0);
+
+    useEffect(() => {
+      debugger
+      let count = props.songs.length;
+      setSongCount(count)
+    },[props.songs])
+    
     return ( 
         <table className="table table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
@@ -24,7 +32,7 @@ const DisplayMusicTable = (props) => {
               return (
                 <tr key={song.id} id={index}>
                   <td>{song.title} </td>
-                  <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}}/></td>
+                  <td>{song.album} <img src={song.album_art_link} style={{'height':'20px', 'width':'20px'}} alt={song.album_art_link}/></td>
                   <td>{song.artist}</td>
                   <td>{song.genre}</td>
                   <td>{song.release_date}</td> 
@@ -48,6 +56,7 @@ const DisplayMusicTable = (props) => {
             )
           })}
         </tbody>
+        <caption>Number of Songs: {songCount}</caption>
         </table>
      );
 }

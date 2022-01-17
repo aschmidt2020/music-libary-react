@@ -13,7 +13,7 @@ const DeleteSong = (props) => {
     }
 
     return (
-        <Button variant="btn btn-outline-secondary" style={{'marginLeft': '-2em'}} onClick={handleClick} data-toggle='popover' title='Delete Song' data-content='Delete Song' trigger='hover'>
+        <Button variant="btn btn-outline-secondary" onClick={handleClick} data-toggle='popover' title='Delete Song' data-content='Delete Song' trigger='hover'>
             <i className="bi bi-trash"></i>
         </Button>
     );

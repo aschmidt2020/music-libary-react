@@ -42,7 +42,7 @@ const FilterMusic = (props) => {
         
         if(tempList.includes(event.target.value)){
             let selectedIndex = tempList.findIndex(e => {
-                if(e == event.target.value){
+                if(e === event.target.value){
                     return true
                 }
             });
@@ -89,7 +89,7 @@ const FilterMusic = (props) => {
         props.setAllSongs(props.allSongs);
     }
 
-    if(props.navbar == 'true'){
+    if(props.navbar === 'true'){
         return(
             <>
             <Button variant="btn btn-outline-secondary" onClick={handleShow} style={{'marginTop':'0.5em'}} data-toggle='popover' title='Filter' data-content='Filter' trigger='hover'>

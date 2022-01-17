@@ -4,11 +4,11 @@ import Button from 'react-bootstrap/Button';
 
 const AddSong = (props) => {
     const [title, setTitle] = useState('');
-    const [albumArt, setAlbumArt] = useState(null)
-    const [album, setAlbum] = useState(null);
+    const [albumArt, setAlbumArt] = useState('')
+    const [album, setAlbum] = useState('');
     const [artist, setArtist] = useState('');
-    const [genre, setGenre] = useState(null);
-    const [releaseDate, setReleaseDate] = useState(null);
+    const [genre, setGenre] = useState('');
+    const [releaseDate, setReleaseDate] = useState('');
     const [likes, setLikes] = useState(0);
     const [show, setShow] = useState(false);
 
@@ -18,7 +18,7 @@ const AddSong = (props) => {
     function handleSubmit(event){
         event.preventDefault();
 
-        if(title != '' && artist != ''){
+        if(title !== '' && artist !== ''){
           debugger
           let newSong = {
             title: title,
@@ -38,13 +38,13 @@ const AddSong = (props) => {
     }
 
     function valueOrNull(state){
-      if(state == ''){
+      if(state === ''){
         return null
       }
-      else if(state == null){
+      else if(state === null){
         return null
       }
-      else if(state != ''){
+      else if(state !== ''){
         return state
       }
     }
