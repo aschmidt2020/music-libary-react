@@ -4,11 +4,11 @@ import Button from 'react-bootstrap/Button';
 
 const AddSong = (props) => {
     const [title, setTitle] = useState('');
-    const [albumArt, setAlbumArt] = useState('')
-    const [album, setAlbum] = useState('');
+    const [albumArt, setAlbumArt] = useState(null)
+    const [album, setAlbum] = useState(null);
     const [artist, setArtist] = useState('');
-    const [genre, setGenre] = useState('');
-    const [releaseDate, setReleaseDate] = useState('');
+    const [genre, setGenre] = useState(null);
+    const [releaseDate, setReleaseDate] = useState(null);
     const [likes, setLikes] = useState(0);
     const [show, setShow] = useState(false);
 
@@ -17,17 +17,22 @@ const AddSong = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        let newSong = {
-          title: title,
-          album_art_link: albumArt,
-          album: album,
-          artist: artist,
-          genre: genre,
-          release_date: releaseDate,
-          likes: likes
+        if(title != '' && artist != ''){
+          let newSong = {
+            title: title,
+            album_art_link: albumArt,
+            album: album,
+            artist: artist,
+            genre: genre,
+            release_date: releaseDate,
+            likes: likes
+          }
+          props.addSong(newSong);
+          resetForm();
         }
-        props.addSong(newSong);
-        resetForm();
+        else{
+          alert('Please enter both a song title and artist.')
+        }
     }
 
     function resetForm(){
@@ -55,12 +60,12 @@ const AddSong = (props) => {
 
             <form className='search-form' onSubmit={handleSubmit}>
                 <div className='input-group mb-3'>
-                    <label className='input-group-text'>Title</label>
+                    <label className='input-group-text'>Title (req)</label>
                     <input className='form-control' type='text' value={title} onChange={(event) => setTitle(event.target.value)}/>     
                 </div>
 
                 <div className='input-group mb-3'>
-                    <label className='input-group-text'>Artist</label>
+                    <label className='input-group-text'>Artist (req)</label>
                     <input className='form-control' type='text' value={artist} onChange={(event) => setArtist(event.target.value)}/>    
                 </div>
 

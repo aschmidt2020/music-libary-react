@@ -86,10 +86,7 @@ const FilterMusic = (props) => {
         { 
         this.checked = false; 
         }); 
-        //debugger
         props.setAllSongs(props.allSongs);
-        setShow(false);
-        
     }
 
     if(props.navbar == 'true'){
