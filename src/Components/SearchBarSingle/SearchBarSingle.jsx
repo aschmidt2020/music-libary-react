@@ -4,7 +4,7 @@ const SearchBarSingle = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        debugger
+        //debugger
         let searchTermLower = searchTerm.toLowerCase()
         let songs = props.allSongs.filter (e => { //kept all if statements so that each 'e' would have to loop through each statement
             if(e.title.toLowerCase().includes(searchTermLower)){return true}; 

@@ -10,6 +10,7 @@ function App() {
 
   const [allSongs, setAllSongs] = useState([]);
   const [songs, setSongs] = useState([]);
+  const [sortByState, setSortByState] = useState('oldest');
 
   useEffect(() => {
     getAllSongs();
@@ -37,7 +38,7 @@ function App() {
       data: song
     });
 
-    getAllSongs()
+    getAllSongs();
   }
 
   async function updateSong(song){
@@ -72,29 +73,44 @@ function App() {
     setSongs(song);
   }
 
-  function setSongsOrder(title){
-    if(title){
-      let songsCopy = [...songs]
-      let songsOrder = songsCopy.sort(compareTitles);
+  function setSongsOrder(sortBy){
+    
+    if(sortBy === 'title'){
+        let songsCopy = [...songs]
+        let songsOrder = songsCopy.sort(compareTitles);
+  
+        let allSongsCopy = [...allSongs]
+        let allSongsOrder = allSongsCopy.sort(compareTitles);
+  
+        setSongs(songsOrder);
+        setAllSongs(allSongsOrder);
+        setSortByState('title');
+      
+      }  
 
-      let allSongsCopy = [...allSongs]
-      let allSongsOrder = allSongsCopy.sort(compareTitles);
-
-      setSongs(songsOrder);
-      setAllSongs(allSongsOrder);
+    else if(sortBy === 'recent'){
+        let songsCopy = [...songs]
+        let songsOrder = songsCopy.sort(compareIdRecentFirst);
+  
+        let allSongsCopy = [...allSongs]
+        let allSongsOrder = allSongsCopy.sort(compareIdRecentFirst);
+  
+        setSongs(songsOrder);
+        setAllSongs(allSongsOrder);
+        setSortByState('recent');
     }
 
-    else{
+    else if(sortBy === 'oldest'){
       let songsCopy = [...songs]
-      let songsOrder = songsCopy.sort(compareId);
+      let songsOrder = songsCopy.sort(compareIdOldestFirst);
 
       let allSongsCopy = [...allSongs]
-      let allSongsOrder = allSongsCopy.sort(compareId);
+      let allSongsOrder = allSongsCopy.sort(compareIdOldestFirst);
 
       setSongs(songsOrder);
       setAllSongs(allSongsOrder);
-
-    }  
+      setSortByState('oldest');
+  }
   }
 
   function compareTitles(x,y) 
@@ -106,7 +122,16 @@ function App() {
   return 0;
   }
 
- function compareId(x,y) 
+ function compareIdRecentFirst(x,y) 
+  {
+  if (x.id < y.id)
+      return 1;
+  if (x.id > y.id)
+      return -1;
+  return 0;
+  }
+
+  function compareIdOldestFirst(x,y) 
   {
   if (x.id < y.id)
       return -1;
