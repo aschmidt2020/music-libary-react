@@ -10,6 +10,8 @@ import { compareIdOldestFirst, compareTitles, compareIdRecentFirst } from './Uti
 function App() {
 
   const [tempSongs, setTempSongs] = useState([]);
+  const [addedSong, setAddedSong] = useState('');
+  const [updatedSong, setUpdatedSong] = useState('');
   const [allSongs, setAllSongs] = useState([]);
   const [songs, setSongs] = useState([]);
   const [sortByState, setSortByState] = useState('oldest');
@@ -20,7 +22,8 @@ function App() {
   }, [])
 
   useEffect(() => {
-    getSongsOrder(sortByState);
+    getSongsOrderOnRerender(sortByState)
+
     // eslint-disable-next-line
   }, [tempSongs])
 
@@ -36,6 +39,11 @@ function App() {
     setTempSongs(response.data);
   }
 
+  async function getAllSongsSorted(){
+    let response = await axios.get('http://127.0.0.1:8000/music/');
+    setTempSongs(response.data);
+  }
+
   async function addSong(song){
       await axios({
       method: 'post',
@@ -43,12 +51,13 @@ function App() {
       headers: {}, 
       data: song
     });
-
-    getAllSongs();
+    setAddedSong(song);
+    setUpdatedSong('');
+    getAllSongsSorted();
   }
 
   async function updateSong(song){
-    console.log(`http://127.0.0.1:8000/music/${song.id}/`)
+    //console.log(`http://127.0.0.1:8000/music/${song.id}/`)
     await axios({
     method: 'put',
     url: `http://127.0.0.1:8000/music/${song.id}/`,
@@ -56,17 +65,21 @@ function App() {
     data: song,
   });
 
-  getAllSongs()
+  setUpdatedSong(song);
+  setAddedSong('');
+  getAllSongsSorted();
 }
 
   async function deleteSong(song){
-    console.log(`http://127.0.0.1:8000/music/${song.id}/`)
+    //console.log(`http://127.0.0.1:8000/music/${song.id}/`)
     await axios({
     method: 'delete',
     url: `http://127.0.0.1:8000/music/${song.id}/`,
   });
 
-  getAllSongs()
+  setUpdatedSong('');
+  setAddedSong('');
+  getAllSongsSorted();
   }
 
   function setAllSongsFunction(allSongs){
@@ -78,7 +91,6 @@ function App() {
   }
 
   function getSongsOrder(sortBy){
-    
     if(sortBy === 'title'){
         let songsCopy = [...songs]
         let songsOrder = songsCopy.sort(compareTitles);
@@ -115,7 +127,38 @@ function App() {
       setAllSongs(allSongsOrder);
       setSortByState('oldest');
   }
+
+}
+
+function getSongsOrderOnRerender(sortBy, song){
+  if(sortBy === 'title'){
+      let songsCopy = [...tempSongs]
+      let songsOrder = songsCopy.sort(compareTitles);
+
+      setSongs(songsOrder);
+      setAllSongs(songsOrder);
+      setSortByState('title');
+    
+    }  
+
+  else if(sortBy === 'recent'){
+      let songsCopy = [...tempSongs]
+      let songsOrder = songsCopy.sort(compareIdRecentFirst);
+
+      setSongs(songsOrder);
+      setAllSongs(songsOrder);
+      setSortByState('recent');
   }
+
+  else if(sortBy === 'oldest'){
+    let songsCopy = [...tempSongs]
+    let songsOrder = songsCopy.sort(compareIdOldestFirst);
+    setSongs(songsOrder);
+    setAllSongs(songsOrder);
+    setSortByState('oldest');
+}
+
+}
 
   return (
     <div>
@@ -154,6 +197,6 @@ function App() {
       </div>
     </div>
   );
-}
+  }
 
 export default App;

@@ -65,7 +65,7 @@ const AddSong = (props) => {
           <i className="bi bi-plus-lg"></i>
           </Button>
 
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={show} onHide={resetForm}>
             <Modal.Header closeButton>
               <Modal.Title>Add Song</Modal.Title>
             </Modal.Header>
@@ -106,7 +106,7 @@ const AddSong = (props) => {
             
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" onClick={resetForm}>
                 Close
               </Button>
               <Button type='submit' variant="primary" onClick={handleSubmit}>

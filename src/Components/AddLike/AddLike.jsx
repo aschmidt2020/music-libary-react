@@ -55,8 +55,8 @@ const AddLike = (props) => {
 
     }
     return (
-            <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '5.5em'}} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
-            <i className="bi bi-hand-thumbs-up"></i>
+            <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '4.5em'}} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
+            &nbsp;<i className="bi bi-hand-thumbs-up"></i>&nbsp;&nbsp;
             </Button>
 
     );

@@ -20,6 +20,11 @@ const SearchBarSingle = (props) => {
         props.updateSetSongs(songs);
     },[searchTerm])
 
+    useEffect(() => { //if a song is added while searching, will remove search terms
+        setSearchTerm('')
+
+    },[props.allSongs])
+
 
     return ( 
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
