@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 const AddLike = (props) => {
     function handleClick(event){
         event.preventDefault();
-        debugger
 
         let newLikes = props.song.likes + 1;
 
@@ -24,7 +23,6 @@ const AddLike = (props) => {
 
     function handleClickDislike(event){
         event.preventDefault();
-        debugger
 
         let newLikes = props.song.likes - 1;
 

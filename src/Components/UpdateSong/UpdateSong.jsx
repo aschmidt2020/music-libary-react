@@ -34,7 +34,7 @@ const UpdateSong = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        debugger
+        //debugger
         let updatedSong = {
           id: props.song.id,
           title: title,

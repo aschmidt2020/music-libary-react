@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AddLike from '../AddLike/AddLike';
 import DeleteSong from '../DeleteSong/DeleteSong';
 import SortByTitle from '../SortByTitle/SortByTitle';
-import UpdateSong from '../UpdateSong/UpdateSong'
+import UpdateSong from '../UpdateSong/UpdateSong';
 //?? release_date versus releaseDate
 
 const DisplayMusicTable = (props) => {
@@ -11,9 +11,9 @@ const DisplayMusicTable = (props) => {
 
     useEffect(() => {
       let count = props.songs.length;
-      setSongCount(count)
+      setSongCount(count);
     },[props.songs])
-    
+
     return ( 
         <table className="table table-sm table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>

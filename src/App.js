@@ -5,9 +5,11 @@ import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import GetAllSongs from './Components/GetAllSongs/GetAllSongs';
 import WelcomeText from './Components/WelcomeText/WelcomeText';
+import { compareIdOldestFirst, compareTitles, compareIdRecentFirst } from './Utils/CompareToSort'
 
 function App() {
 
+  const [tempSongs, setTempSongs] = useState([]);
   const [allSongs, setAllSongs] = useState([]);
   const [songs, setSongs] = useState([]);
   const [sortByState, setSortByState] = useState('oldest');
@@ -16,6 +18,11 @@ function App() {
     getAllSongs();
     setBackground();
   }, [])
+
+  useEffect(() => {
+    getSongsOrder(sortByState);
+    // eslint-disable-next-line
+  }, [tempSongs])
 
   function setBackground(){
     document.body.style.backgroundColor = '#fafafa';
@@ -26,6 +33,7 @@ function App() {
     let response = await axios.get('http://127.0.0.1:8000/music/');
     setAllSongs(response.data);
     setSongs(response.data);
+    setTempSongs(response.data);
   }
 
   async function addSong(song){
@@ -109,33 +117,6 @@ function App() {
   }
   }
 
-  function compareTitles(x,y) 
-  {
-  if (x.title.toLowerCase() < y.title.toLowerCase())
-      return -1;
-  if (x.title.toLowerCase() > y.title.toLowerCase())
-      return 1;
-  return 0;
-  }
-
- function compareIdRecentFirst(x,y) 
-  {
-  if (x.id < y.id)
-      return 1;
-  if (x.id > y.id)
-      return -1;
-  return 0;
-  }
-
-  function compareIdOldestFirst(x,y) 
-  {
-  if (x.id < y.id)
-      return -1;
-  if (x.id > y.id)
-      return 1;
-  return 0;
-  }
-
   return (
     <div>
       <div className='container-fluid'>
@@ -162,7 +143,7 @@ function App() {
             
           </div>
           <div className='col-10'>
-            <DisplayMusicTable allSongs={allSongs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} getSongsOrder={getSongsOrder}/>
+            <DisplayMusicTable allSongs={allSongs} songs={songs} songOrder={sortByState} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} getSongsOrder={getSongsOrder}/>
           </div>
 
           <div className='col-1'>

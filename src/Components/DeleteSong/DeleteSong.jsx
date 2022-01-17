@@ -6,7 +6,7 @@ const DeleteSong = (props) => {
         event.preventDefault();
         // eslint-disable-next-line no-restricted-globals
         let confirmDelete = confirm(`Are you sure you would like to delete the following song:\n\nTitle: ${props.song.title}\nArtist: ${props.song.artist}\n\nSelect OK for yes and Cancel for no.`)
-        debugger
+        //debugger
         if (confirmDelete){
             props.deleteSong(props.song)
         }
