@@ -7,10 +7,7 @@ const SortByTitle = (props) => {
 
     function handleClick(event) {
         let oppositeState = !sortByTitle;
-        console.log('opposite state:', oppositeState)
         setSortByTitle(oppositeState);
-        //debugger
-        console.log('current state after set:', sortByTitle)
         props.setSongsOrder(oppositeState)
 
     }

@@ -74,30 +74,27 @@ function App() {
 
   function setSongsOrder(title){
     if(title){
-      let songsOrder = songs.sort(compareTitles);
-      let allSongsOrder = allSongs.sort(compareTitles);
-      console.log('alphabet songs app.js', songsOrder);
-      console.log('all alphabet songs app.js', allSongsOrder)
-      //debugger
+      let songsCopy = [...songs]
+      let songsOrder = songsCopy.sort(compareTitles);
+
+      let allSongsCopy = [...allSongs]
+      let allSongsOrder = allSongsCopy.sort(compareTitles);
+
       setSongs(songsOrder);
       setAllSongs(allSongsOrder);
     }
+
     else{
-      let songsOrder = songs.sort(compareId);
-      let allSongsOrder = allSongs.sort(compareId);
-      console.log('time songs app.js', songsOrder);
-      console.log('all time songs app.js', allSongsOrder)
-      //debugger
+      let songsCopy = [...songs]
+      let songsOrder = songsCopy.sort(compareId);
+
+      let allSongsCopy = [...allSongs]
+      let allSongsOrder = allSongsCopy.sort(compareId);
+
       setSongs(songsOrder);
       setAllSongs(allSongsOrder);
 
-    }
-
-    //debugger
-
-    console.log('after set songs app.js', songs);
-    console.log('after set allsongs app.js', allSongs);
-    
+    }  
   }
 
   function compareTitles(x,y) 
@@ -157,7 +154,6 @@ function App() {
             
           </div>
           <div className='col-10'>
-            <SortByTitle allSongs={allSongs} songs={songs} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
             <DisplayMusicTable allSongs={allSongs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
           </div>
 
