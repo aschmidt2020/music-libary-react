@@ -99,9 +99,9 @@ function App() {
 
   function compareTitles(x,y) 
   {
-  if (x.title < y.title)
+  if (x.title.toLowerCase() < y.title.toLowerCase())
       return -1;
-  if (x.title > y.title)
+  if (x.title.toLowerCase() > y.title.toLowerCase())
       return 1;
   return 0;
   }

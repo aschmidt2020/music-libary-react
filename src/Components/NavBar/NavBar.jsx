@@ -9,7 +9,7 @@ const NavBar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{'backgroundColor' : '#e3f2fd'}}>
         <div className="container-fluid">
-            <a className="navbar-brand" href="#"><i className="bi bi-music-note-beamed">MusicLibrary</i></a>  
+            <p className="navbar-brand" href="#"><i className="bi bi-music-note-beamed">MusicLibrary</i></p>  
             <div className="nav-item"><SearchBarSingle allSongs={props.allSongs} songs={props.songs} updateSetSongs={props.updateSetSongs}/></div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExpand" aria-controls="navbarExpand" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
