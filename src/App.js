@@ -22,8 +22,8 @@ function App() {
   useEffect(() => {
     getSongsOrderOnRerender(sortByState);
     debugger
-    updateSongsOnRerender();
-    console.log(songs)
+    //updateSongsOnRerender();
+    //console.log(songs)
     // eslint-disable-next-line
   }, [tempSongs])
 
@@ -153,25 +153,25 @@ function getSongsOrderOnRerender(sortBy){
     let songsCopy = [...tempSongs]
     let songsOrder = songsCopy.sort(compareIdOldestFirst);
 
-    setSongs(songsOrder);
-    setAllSongs(songsOrder);
+     setSongs(songsOrder);
+     setAllSongs(songsOrder);
 }
 
 }
 
-function updateSongsOnRerender(){
-  let songIds = songs.map((song) => {
-    return song.id
-  })
+// function updateSongsOnRerender(){
+//   let songIds = songs.map((song) => {
+//     return song.id
+//   })
 
-  let temp = tempSongs.filter((e => {
-    if(songIds.includes(e.id)){return true};
-  }))
+//   let temp = tempSongs.filter((e => {
+//     if(songIds.includes(e.id)){return true};
+//   }))
 
-  debugger
-  setSongs(temp)
+//   debugger
+//   setSongs(temp)
 
-}
+// }
 
   return (
     <div>
