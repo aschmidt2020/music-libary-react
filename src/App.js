@@ -17,6 +17,7 @@ function App() {
     setBackground();
   }, [])
 
+
   function setBackground(){
     document.body.style.backgroundColor = '#fafafa';
     document.body.style.marginLeft = '-2em';
@@ -26,7 +27,6 @@ function App() {
     let response = await axios.get('http://127.0.0.1:8000/music/');
     setAllSongs(response.data);
     setSongs(response.data);
-    //debugger
   }
 
   async function addSong(song){
@@ -73,7 +73,7 @@ function App() {
     setSongs(song);
   }
 
-  function setSongsOrder(sortBy){
+  function getSongsOrder(sortBy){
     
     if(sortBy === 'title'){
         let songsCopy = [...songs]
@@ -166,7 +166,7 @@ function App() {
             
           </div>
           <div className='col-10'>
-            <DisplayMusicTable allSongs={allSongs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} setSongsOrder={setSongsOrder}/>
+            <DisplayMusicTable allSongs={allSongs} songs={songs} updateSong={updateSong} deleteSong={deleteSong} updateSetSongs={updateSetSongs} getSongsOrder={getSongsOrder}/>
           </div>
 
           <div className='col-1'>

@@ -5,14 +5,14 @@ const SortByTitle = (props) => {
     function handleClick(event) {
         //debugger
         if(event.target.innerHTML === "Sort By Title"){
-            props.setSongsOrder('title');
+            props.getSongsOrder('title');
         }
         else if(event.target.innerHTML === "Sort By Recently Added"){
-            props.setSongsOrder('recent');
+            props.getSongsOrder('recent');
         }
 
         else if(event.target.innerHTML === "Sort By Earliest Added"){
-            props.setSongsOrder('oldest');
+            props.getSongsOrder('oldest');
         };
 
     }

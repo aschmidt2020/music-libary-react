@@ -18,7 +18,7 @@ const DisplayMusicTable = (props) => {
         <table className="table table-sm table-striped table-hover text-align-center" style={{'marginTop' : '2em'}}>
         <thead>
           <tr>
-            <th>Song Title <SortByTitle allSongs={props.allSongs} songs={props.songs} updateSetSongs={props.updateSetSongs} setSongsOrder={props.setSongsOrder}/></th>
+            <th>Song Title <SortByTitle allSongs={props.allSongs} songs={props.songs} updateSetSongs={props.updateSetSongs} getSongsOrder={props.getSongsOrder}/></th>
             <th>Album</th>
             <th>Artist</th>
             <th>Genre</th>
