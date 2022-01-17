@@ -8,7 +8,7 @@ const FilterMusic = (props) => {
     const [artists, setArtists] = useState([]);
     const [albums, setAlbums] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [releaseDates, setReleaseDates] = useState([])
+    //const [releaseDates, setReleaseDates] = useState([])
 
     const [show, setShow] = useState(false);
 
@@ -28,12 +28,12 @@ const FilterMusic = (props) => {
         let artistsList = getValues('artist', props.songs);
         let albumsList = getValues('album', props.songs);
         let genresList = getValues('genre', props.songs);
-        let releaseDatesList = getValues('release_date', props.songs)
+        //let releaseDatesList = getValues('release_date', props.songs)
 
         setArtists(artistsList);
         setAlbums(albumsList);
         setGenres(genresList);
-        setReleaseDates(releaseDatesList);
+        //setReleaseDates(releaseDatesList);
     }, [props.songs])
 
     function toggleCheckbox(event) {
@@ -130,12 +130,12 @@ const FilterMusic = (props) => {
 
                     <span><br></br></span>
 
-                    <span className='filter-list-text'>Filter by Release Dates</span>
+                    {/* <span className='filter-list-text'>Filter by Release Dates</span>
                     {releaseDates.map((date, index) => {
                         return (
                             <li key={index} className='filter-list-text'><input type='checkbox' value={date} onChange={toggleCheckbox} style={{'marginRight': '10px'}}/>{date}</li>
                         )
-                    })}
+                    })} */}
 
                     <span><br></br></span>
                 </form>
