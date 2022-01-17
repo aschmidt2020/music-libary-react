@@ -41,6 +41,9 @@ const AddSong = (props) => {
       if(state == ''){
         return null
       }
+      else if(state == null){
+        return null
+      }
       else if(state != ''){
         return state
       }

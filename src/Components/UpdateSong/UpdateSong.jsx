@@ -38,15 +38,27 @@ const UpdateSong = (props) => {
         let updatedSong = {
           id: props.song.id,
           title: title,
-          album_art_link: albumArt,
-          album: album,
+          album_art_link: valueOrNull(albumArt),
+          album: valueOrNull(album),
           artist: artist,
-          genre: genre,
-          release_date: releaseDate,
+          genre: valueOrNull(genre),
+          release_date: valueOrNull(releaseDate),
           likes: likes
         }
         props.updateSong(updatedSong);
         handleClose();
+    }
+
+    function valueOrNull(state){
+      if(state == ''){
+        return null
+      }
+      else if(state == null){
+        return null
+      }
+      else if(state != ''){
+        return state
+      }
     }
 
     return (
