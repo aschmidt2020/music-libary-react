@@ -17,7 +17,6 @@ function App() {
     setBackground();
   }, [])
 
-
   function setBackground(){
     document.body.style.backgroundColor = '#fafafa';
     document.body.style.marginLeft = '-2em';
@@ -30,7 +29,6 @@ function App() {
   }
 
   async function addSong(song){
-      debugger
       await axios({
       method: 'post',
       url: 'http://127.0.0.1:8000/music/',
@@ -42,7 +40,6 @@ function App() {
   }
 
   async function updateSong(song){
-    debugger
     console.log(`http://127.0.0.1:8000/music/${song.id}/`)
     await axios({
     method: 'put',
@@ -55,7 +52,6 @@ function App() {
 }
 
   async function deleteSong(song){
-    debugger
     console.log(`http://127.0.0.1:8000/music/${song.id}/`)
     await axios({
     method: 'delete',

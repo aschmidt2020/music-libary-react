@@ -19,7 +19,6 @@ const AddSong = (props) => {
         event.preventDefault();
 
         if(title !== '' && artist !== ''){
-          debugger
           let newSong = {
             title: title,
             album_art_link: (valueOrNull(albumArt)),
