@@ -17,14 +17,16 @@ const AddSong = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
+
         if(title != '' && artist != ''){
+          debugger
           let newSong = {
             title: title,
-            album_art_link: albumArt,
-            album: album,
+            album_art_link: (valueOrNull(albumArt)),
+            album: (valueOrNull(album)),
             artist: artist,
-            genre: genre,
-            release_date: releaseDate,
+            genre: (valueOrNull(genre)),
+            release_date: (valueOrNull(releaseDate)),
             likes: likes
           }
           props.addSong(newSong);
@@ -33,6 +35,15 @@ const AddSong = (props) => {
         else{
           alert('Please enter both a song title and artist.')
         }
+    }
+
+    function valueOrNull(state){
+      if(state == ''){
+        return null
+      }
+      else if(state != ''){
+        return state
+      }
     }
 
     function resetForm(){
