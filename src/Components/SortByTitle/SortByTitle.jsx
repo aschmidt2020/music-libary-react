@@ -20,7 +20,7 @@ const SortByTitle = (props) => {
 
     return (
         <span className="dropdown">
-            <button className="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-toggle='popover' title='Sort Songs' data-content='Sort Songs' trigger='hover'>
             <i className="bi bi-funnel"></i>
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
