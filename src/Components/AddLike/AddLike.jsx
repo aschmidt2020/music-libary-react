@@ -44,20 +44,20 @@ const AddLike = (props) => {
 
     if(props.song.likes > 0){
         return (
-                <div>
+                <span>
                 <Button variant="btn btn-outline-secondary" onClick={handleClick} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
                 <i className="bi bi-hand-thumbs-up-fill"></i> {props.song.likes}
                 </Button>
 
-                <Button variant="btn btn-outline-secondary" onClick={handleClickDislike} style={{'marginLeft': '1em'}} data-toggle='popover' title='Remove Like' data-content='Remove Like' trigger='hover'>
+                <Button variant="btn btn-outline-secondary" onClick={handleClickDislike} style={{'marginLeft': '1em', 'marginRight':'1em'}} data-toggle='popover' title='Remove Like' data-content='Remove Like' trigger='hover'>
                 <i className="bi bi-hand-thumbs-down"></i>
                 </Button>
-                </div>
+                </span>
         )
 
     }
     return (
-            <Button variant="btn btn-outline-secondary" onClick={handleClick} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
+            <Button variant="btn btn-outline-secondary" onClick={handleClick} style={{'marginRight': '5.5em'}} data-toggle='popover' title='Add Like' data-content='Add Like' trigger='hover'>
             <i className="bi bi-hand-thumbs-up"></i>
             </Button>
 

@@ -62,8 +62,8 @@ const UpdateSong = (props) => {
     }
 
     return (
-            <div>
-              <Button variant="btn btn-outline-secondary" onClick={handleShow} data-toggle='popover' title='Edit Song' data-content='Edit Song' trigger='hover'>
+            <span>
+              <Button variant="btn btn-outline-secondary" style={{'marginRight': '1em'}} onClick={handleShow} data-toggle='popover' title='Edit Song' data-content='Edit Song' trigger='hover'>
               <i className="bi bi-pen"></i>
               </Button>
     
@@ -116,7 +116,7 @@ const UpdateSong = (props) => {
                   </Button>
                 </Modal.Footer>
               </Modal>
-        </div>
+        </span>
     );
 }
  
